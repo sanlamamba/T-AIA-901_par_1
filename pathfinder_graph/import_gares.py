@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # Fichier csv récupéré depuis le site de la SCNF
-gares_df = pd.read_csv("liste-des-gares.csv", delimiter=';')
+gares_df = pd.read_csv("../data/liste-des-gares.csv", delimiter=';')
 
 
 print("Aperçu du dataset des gares :")
@@ -28,3 +28,4 @@ nx.draw(graph, pos, with_labels=True, node_size=50, node_color='blue', font_size
 # Afficher le graphe
 plt.title("Visualisation du graphe des gares")
 plt.show()
+
