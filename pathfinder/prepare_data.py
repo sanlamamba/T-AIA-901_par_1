@@ -11,7 +11,7 @@ PATHFINDER_DIR = './pathfinder/'
 gare_df = pd.read_csv(BASE_DIR + 'liste-des-gares.csv', delimiter=';')
 ligne_df = pd.read_csv(BASE_DIR + 'formes-des-lignes-du-rfn.csv', delimiter=';')
 
-include_geo_shape = False 
+include_geo_shape = True 
 
 prepared_df = gare_df[['CODE_UIC', 'LIBELLE', 'CODE_LIGNE', 'Geo Shape']].copy()
 prepared_df['connected_to'] = None
