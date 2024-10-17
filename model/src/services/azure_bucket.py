@@ -25,7 +25,7 @@ class AzureBucket:
         self, 
         blob_name: str, 
         local_download_path: str = f"{os.getcwd()}/model/processed"
-    ) -> None:
+    ):
         print(f"Downloading model...")
         os.makedirs(local_download_path, exist_ok=True)
         download_file_path = os.path.join(local_download_path, os.path.basename(blob_name))

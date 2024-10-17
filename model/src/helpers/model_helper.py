@@ -2,7 +2,6 @@ import os
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
 class BertForSequenceClassificationBase(nn.Module):
@@ -11,13 +10,7 @@ class BertForSequenceClassificationBase(nn.Module):
             return super().__getattr__(name)
         except AttributeError:
             return getattr(self.module, name)
-
-    def training_step(self, batch):
-        images, labels = batch
-        out = self(images)
-        loss = F.cross_entropy(out, labels)
-        return loss
-
+ 
     def save_weights_and_biases(self, file_name:str, path:str=None):
         if path != None:
             model_path= os.path.join(path, f"{file_name}.pth")
