@@ -16,6 +16,8 @@ dependencies:
   - azure-storage-blob
   - anaconda
   - transformers
+  - torchtext
+  - spacy
   - pip
   - pip:
       - opencv-python
