@@ -46,6 +46,34 @@ class DataPreparer:
             dataset, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=4)
         return loader
 
+class DataEncoderNER(Dataset):
+    def __init__(self, sub_sentences, status, tokenizer, max_len):
+        self.sub_sentences = sub_sentences
+        self.status = status
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.sub_sentences)
+
+    def __getitem__(self, idx):
+        encoding = self.tokenizer.encode_plus(
+            self.sub_sentences[idx],
+            add_special_tokens=True,
+            max_length=self.max_len,
+            return_token_type_ids=False,
+            padding='max_length',
+            truncation=True,
+            return_attention_mask=True,
+            return_tensors='pt',
+        )
+        return {
+            'input_ids': encoding['input_ids'].flatten(),
+            'attention_mask': encoding['attention_mask'].flatten(),
+            'sub_sentence': self.sub_sentences[idx],
+            'status': torch.tensor(self.status[idx], dtype=torch.long)
+        }
+
 
 class DataEncoder(Dataset):
     def __init__(self, sentences, departure, arrival, tokenizer, max_len):
