@@ -143,8 +143,7 @@ data/dataset/*
 !data/dataset/brute_sentences_2.csv
 
 # Model processed
-**/processed/model_1/*
-!**/processed/**/*.csv
+**/processed/**/*.pth
 
 # AI Model
 !model/**/models/

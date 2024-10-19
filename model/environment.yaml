@@ -17,7 +17,12 @@ dependencies:
   - anaconda
   - transformers
   - torchtext
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4
   - spacy
+  - sympy=1.13.1
   - pip
   - pip:
       - opencv-python
