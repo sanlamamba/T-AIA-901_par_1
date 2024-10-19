@@ -150,3 +150,4 @@ sentence
 "En partant de DEPARTURE, quel est le meilleur itinéraire pour rejoindre ARRIVAL en passant par INTERMEDIARY ?"
 "Je souhaite aller à ARRIVAL depuis DEPARTURE et faire un détour par INTERMEDIARY, quel est le chemin ?"
 "Peux-tu me dire comment voyager de ARRIVAL à DEPARTURE avec un arrêt à INTERMEDIARY ?"
+"DEPARTURE ARRIVAL"
