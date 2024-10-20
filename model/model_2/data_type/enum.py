@@ -5,3 +5,8 @@ class CityType(Enum):
     arrival = "arrival"
     departure = "departure"
     none = "none"
+
+class IOBTypes(Enum):
+    B = "B"
+    I = "I"
+    O = "O"

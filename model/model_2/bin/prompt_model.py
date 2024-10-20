@@ -10,7 +10,7 @@ from model_2.utils.visualizer import Visualizer
 
 visualizer = Visualizer()
 
-sentence = "Je souhaite aller de Bourguignon sous Coucy à Brancourt en Laonnois en passant par Bosmont sur Serre."
+sentence = "Je souhaite partir de Bosmont sur Serre pour arriver à Brancourt en Laonnois en passant par Chatillon sur Oise."
 
 response = visualizer.pipeline(sentence)
 

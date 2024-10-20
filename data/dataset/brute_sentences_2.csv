@@ -177,3 +177,5 @@ sentence
 "Je ne veux pas aller à NONE. Je veux aller à ARRIVAL depuis DEPARTURE !"
 "Ma maison se trouve à NONE. Je veux déménager à ARRIVAL. Comment faire pour y aller depuis DEPARTURE ?"
 "Un jour, je serai riche et je vivrai à ARRIVAL. Je veux savoir le trajet pour y aller depuis DEPARTURE."
+"Je vais de DEPARTURE à ARRIVAL."
+"Je souhaite aller de DEPARTURE à ARRIVAL en passant par INTERMEDIARY"
