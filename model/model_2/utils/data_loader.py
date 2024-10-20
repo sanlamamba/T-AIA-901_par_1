@@ -76,10 +76,9 @@ class DataEncoderNER(Dataset):
 
 
 class DataEncoder(Dataset):
-    def __init__(self, sentences, departure, arrival, tokenizer, max_len):
+    def __init__(self, sentences, class_name, tokenizer, max_len):
         self.sentences = sentences
-        self.departure = departure
-        self.arrival = arrival
+        self.class_name = class_name
         self.tokenizer = tokenizer
         self.max_len = max_len
 
@@ -100,8 +99,7 @@ class DataEncoder(Dataset):
         return {
             'input_ids': encoding['input_ids'].flatten(),
             'attention_mask': encoding['attention_mask'].flatten(),
-            'departure': torch.tensor(self.departure[idx], dtype=torch.long),
-            'arrival': torch.tensor(self.arrival[idx], dtype=torch.long)
+            'class_name': torch.tensor(self.class_name[idx], dtype=torch.long),
         }
 
         
