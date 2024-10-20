@@ -3,8 +3,8 @@ import spacy
 from transformers import AutoTokenizer
 from sklearn.preprocessing import LabelEncoder
 
-import model_2.data_type.enum as data_type
-from model_2.model.model import BertForSequenceClassification
+import src.data_type.enum as data_type
+from src.model.model import BertForSequenceClassification
 
 class Visualizer:
     def __init__(
