@@ -6,8 +6,8 @@ from tqdm import tqdm
 import folium
 import colorsys  
 
-BASE_DIR = './data/'
-PATHFINDER_DIR = './pathfinder/'
+BASE_DIR = '/workspaces/T-AIA-901_par_1/data/'
+PATHFINDER_DIR = '/workspaces/T-AIA-901_par_1/pathfinder_try/'
 gare_df = pd.read_csv(BASE_DIR + 'liste-des-gares.csv', delimiter=';')
 ligne_df = pd.read_csv(BASE_DIR + 'formes-des-lignes-du-rfn.csv', delimiter=';')
 
@@ -55,7 +55,7 @@ def calculate_connected_stations(index, row, gare_df, ligne_df, include_geo_shap
             distance = geodesic(coord_1, coord_2).kilometers
             
             # Append connected station info as tuples (LIBELLE, distance)
-            connected_info.append((connected_row['LIBELLE'], distance))
+            connected_info.append((connected_row['CODE_UIC'], distance))
     
         return index, connected_info
     except Exception as e:
