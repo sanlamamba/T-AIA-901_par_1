@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from geopy.distance import geodesic
 import json
 
-# Load station data
 PATHFINDER_DIR = '/workspaces/T-AIA-901_par_1/pathfinder_try/'
 with open(PATHFINDER_DIR + 'output/stations_info.json', 'r') as json_file:
     station_data = json.load(json_file)
@@ -70,16 +69,14 @@ class Pathfinder:
             total_path.insert(0, current)
         return self.path_code_to_object(total_path)
 
-    # Function to monitor and track peak memory usage
     def monitor_memory(self, process, peak_memory):
         current_memory = process.memory_info().rss
         return max(peak_memory, current_memory)
 
-    # Helper function to serialize the results
     def serialize_result(self, came_from, current_node, goal, distance, total_memory, start_time, end_time, tries):
         total_time = end_time - start_time
         average_node_time = total_time / tries if tries > 0 else 0
-        memory_usage_mb = total_memory / (1024 ** 2)  # Convert bytes to MB
+        memory_usage_mb = total_memory / (1024 ** 2) 
 
         return {
             "path": self.reconstruct_path(came_from, current_node),
@@ -87,13 +84,12 @@ class Pathfinder:
             "tries": tries,
             "time": total_time,
             "path_length": len(self.reconstruct_path(came_from, goal)),
-            "memory_usage": round(memory_usage_mb, 6),  # Increased precision for memory usage
-            "max_memory_usage": psutil.virtual_memory().used / (1024 ** 2),  # Peak memory usage
+            "memory_usage": round(memory_usage_mb, 6), 
+            "max_memory_usage": psutil.virtual_memory().used / (1024 ** 2), 
             "explored_nodes": tries,
             "average_node_time": average_node_time
         }
 
-    # A* Algorithm with peak memory tracking
     def a_star(self, start, goal):
         process = psutil.Process()
         start_memory = process.memory_info().rss
@@ -114,7 +110,6 @@ class Pathfinder:
             current_f, current_node = heapq.heappop(open_set)
             visited_nodes.add(current_node)
 
-            # Monitor memory usage at each step
             peak_memory = self.monitor_memory(process, peak_memory)
             
             if current_node == goal:
@@ -131,7 +126,6 @@ class Pathfinder:
                     heapq.heappush(open_set, (f_score[neighbor], neighbor))
         return None
 
-    # Dijkstra's Algorithm with peak memory tracking
     def dijkstra(self, start, goal):
         process = psutil.Process()
         start_memory = process.memory_info().rss
@@ -150,7 +144,6 @@ class Pathfinder:
             current_distance, current_node = heapq.heappop(pq)
             visited_nodes.add(current_node)
 
-            # Monitor memory usage at each step
             peak_memory = self.monitor_memory(process, peak_memory)
             
             if current_node == goal:
@@ -166,7 +159,6 @@ class Pathfinder:
                     heapq.heappush(pq, (tentative_distance, neighbor))
         return None
 
-    # BFS Algorithm with peak memory tracking
     def bfs(self, start, goal):
         process = psutil.Process()
         start_memory = process.memory_info().rss
@@ -184,7 +176,6 @@ class Pathfinder:
             tries += 1
             current_node = queue.popleft()
 
-            # Monitor memory usage at each step
             peak_memory = self.monitor_memory(process, peak_memory)
             
             if current_node == goal:
@@ -200,7 +191,6 @@ class Pathfinder:
                     visited_nodes.add(neighbor)
         return None
 
-    # Bellman-Ford Algorithm with peak memory tracking
     def bellman_ford(self, start, goal):
         process = psutil.Process()
         start_memory = process.memory_info().rss
@@ -212,7 +202,6 @@ class Pathfinder:
         came_from = {}
         tries = 0
 
-        # Relax edges |V| - 1 times
         for _ in range(len(self.graph.get_all_nodes()) - 1):
             tries += 1
             for node in self.graph.get_all_nodes():
@@ -221,10 +210,8 @@ class Pathfinder:
                         distances[neighbor] = distances[node] + distance
                         came_from[neighbor] = node
 
-            # Monitor memory usage at each step
             peak_memory = self.monitor_memory(process, peak_memory)
 
-        # Check for negative-weight cycles
         for node in self.graph.get_all_nodes():
             for neighbor, distance in self.graph.get_neighbors(node).items():
                 if distances[node] + distance < distances[neighbor]:
@@ -234,7 +221,6 @@ class Pathfinder:
         total_memory = peak_memory - start_memory
         return self.serialize_result(came_from, goal, goal, distances[goal], total_memory, start_time, end_time, tries)
 
-    # DFS Algorithm with peak memory tracking
     def dfs(self, start, goal):
         process = psutil.Process()
         start_memory = process.memory_info().rss
@@ -251,7 +237,6 @@ class Pathfinder:
             (current_node, path) = stack.pop()
             visited_nodes.add(current_node)
 
-            # Monitor memory usage at each step
             peak_memory = self.monitor_memory(process, peak_memory)
 
             if current_node == goal:
@@ -267,31 +252,25 @@ class Pathfinder:
         return None
 
 
-# Initialize Pathfinder and run the algorithms
 pathfinder = Pathfinder(G)
 start_station = '87009696'
 goal_station = '87484204'
 
-# Run A* Algorithm
 a_star_result = pathfinder.a_star(start_station, goal_station)
 print(f"A* result: {a_star_result}")
 
-# Run Dijkstra's Algorithm
 dijkstra_result = pathfinder.dijkstra(start_station, goal_station)
 print(f"Dijkstra result: {dijkstra_result}")
 
-# Run BFS Algorithm
 bfs_result = pathfinder.bfs(start_station, goal_station)
 print(f"BFS result: {bfs_result}")
 
-# Run Bellman-Ford Algorithm
 bellman_ford_result = pathfinder.bellman_ford(start_station, goal_station)
 print(f"Bellman-Ford result: {bellman_ford_result}")
 
 dfs_result = pathfinder.dfs(start_station, goal_station)
 print(f"DFS result: {dfs_result}")
 
-# Plot the results with additional metrics
 def plot_results(results):
     algorithms = list(results.keys())
     times = [results[algo]['time'] for algo in algorithms]
@@ -303,32 +282,26 @@ def plot_results(results):
 
     fig, axs = plt.subplots(2, 3, figsize=(18, 12))
 
-    # Time Comparison
     axs[0, 0].bar(algorithms, times, color='b')
     axs[0, 0].set_title('Time Comparison')
     axs[0, 0].set_ylabel('Time (seconds)')
 
-    # Tries Comparison
     axs[0, 1].bar(algorithms, tries, color='g')
     axs[0, 1].set_title('Tries Comparison')
     axs[0, 1].set_ylabel('Number of Tries')
 
-    # Memory Usage Comparison
     axs[0, 2].bar(algorithms, memory_usages, color='r')
     axs[0, 2].set_title('Memory Usage Comparison')
     axs[0, 2].set_ylabel('Memory Usage (MB)')
 
-    # Path Length Comparison
     axs[1, 0].plot(algorithms, path_lengths, marker='o', linestyle='-', color='c')
     axs[1, 0].set_title('Path Length Comparison')
     axs[1, 0].set_ylabel('Path Length (nodes)')
 
-    # Explored Nodes Comparison
     axs[1, 1].scatter(algorithms, explored_nodes, color='m', s=100)
     axs[1, 1].set_title('Explored Nodes Comparison')
     axs[1, 1].set_ylabel('Number of Explored Nodes')
 
-    # Average Time per Node
     axs[1, 2].pie(avg_node_times, labels=algorithms, autopct='%1.1f%%', startangle=90)
     axs[1, 2].set_title('Average Time per Node (Seconds)')
 
