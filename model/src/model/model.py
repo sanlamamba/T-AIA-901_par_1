@@ -12,7 +12,6 @@ class BertForSequenceClassification(nn.Module):
         self.drop = nn.Dropout(p=0.3)
         self.out_linear = nn.Linear(self.bert.config.hidden_size, n_classes)
 
-
     def forward(self, input_ids, attention_mask):
         outputs = self.bert(
             input_ids=input_ids,

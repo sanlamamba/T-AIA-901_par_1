@@ -5,8 +5,8 @@ import pandas as pd
 
 
 class VisualizerHelper:
-    train_station_df = pd.read_csv('../../../data/liste-des-gares.csv', sep=';')
-    cities_df = pd.read_csv('../../../data/cities.csv')
+    train_station_df = pd.read_csv('../data/liste-des-gares.csv', sep=';')
+    cities_df = pd.read_csv('../data/cities.csv')
 
     @staticmethod
     def __haversine_vectorized(lat1, lon1, lat2, lon2):
