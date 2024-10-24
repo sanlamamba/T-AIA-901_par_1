@@ -22,6 +22,8 @@ dependencies:
   - torchaudio
   - spacy
   - sympy=1.13.1
+  - geopy
+  - rapidfuzz
   - pip
   - pip:
       - opencv-python

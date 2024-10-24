@@ -1,7 +1,9 @@
 import os
+
 import torch
 import torch.nn as nn
 from transformers import AutoModel
+
 
 class BertForSequenceClassification(nn.Module):
     def __init__(self, n_classes, bert_model=AutoModel.from_pretrained("dbmdz/bert-base-french-europeana-cased")):
@@ -35,4 +37,8 @@ class BertForSequenceClassification(nn.Module):
             model_path = os.path.join(path, f"{file_name}")
         else:
             model_path = os.path.join(os.getcwd(), f"../../processed/model_2/{file_name}")
-        self.load_state_dict(torch.load(model_path, weights_only=True))
+        self.load_state_dict(torch.load(
+            model_path, 
+            weights_only=True, 
+            map_location=torch.device('cpu')
+        ))

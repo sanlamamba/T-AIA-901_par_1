@@ -1,10 +1,10 @@
-import torch
 import spacy
-from transformers import AutoTokenizer
-from sklearn.preprocessing import LabelEncoder
-
 import src.data_type.enum as data_type
+import torch
+from sklearn.preprocessing import LabelEncoder
 from src.model.model import BertForSequenceClassification
+from transformers import AutoTokenizer
+
 
 class Visualizer:
     def __init__(
@@ -47,8 +47,6 @@ class Visualizer:
 
             for word in doc_sentence[idx + 1 : idx + 7]:
                 word_to_add = word.text
-                if(word.text == "."):
-                    word_to_add = "None"
                 sub_sentence = f"{sub_sentence} {word_to_add}"
 
             status = self.__make_inference(model, le_iob, sub_sentence)
@@ -59,6 +57,9 @@ class Visualizer:
         for idx, word in enumerate(individual_words):
             status = word[-3:]
             trimmed_word = word[:-3]
+            if(trimmed_word == "."):
+                continue
+
             if(status == "[B]"):
                 names.append(trimmed_word)
 
