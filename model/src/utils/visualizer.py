@@ -63,7 +63,7 @@ class Visualizer:
             if(status == "[B]"):
                 names.append(trimmed_word)
 
-            if(status == "[I]"):
+            if(status == "[I]" and len(names) > 0):
                 if(trimmed_word == "."):
                     continue
                 names[len(names) - 1] = f"{names[len(names) - 1]} {trimmed_word}"
@@ -90,7 +90,7 @@ class Visualizer:
             response.append(
                 {
                     "status": output,
-                    "city": city
+                    "place": city
                 }
             )
 

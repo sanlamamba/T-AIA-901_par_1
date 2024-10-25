@@ -76,7 +76,31 @@ class CityToTrainHelper:
             }
         else:
             return None
-    
+
+    @classmethod
+    def __get_department(cls, name):
+        entity = cls.all_names_df.loc[
+            cls.all_names_df["department"] == name
+        ]
+
+        if entity.empty:
+            return None
+
+        response = entity.groupby("label").value_counts().sort_values(ascending=False).idxmax()
+        return response[6]
+
+    @classmethod
+    def __get_region(cls, name):
+        entity = cls.all_names_df.loc[
+            cls.all_names_df["region"] == name
+        ]
+
+        if entity.empty:
+            return cls.__get_department(name) 
+
+        response = entity.groupby("label").value_counts().sort_values(ascending=False).idxmax()
+        return response[6]
+
     @classmethod
     def get_closest_train_station(cls, name):
         entity = cls.all_names_df.loc[
@@ -84,11 +108,8 @@ class CityToTrainHelper:
         ]
 
         if entity.empty:
-            return None
-
+            return cls.__get_region(name)
         if (entity["class_name"].values[0] == "train_station"):
             return name
 
-        response = entity["nearest_train_station"].values[0]
-
-        return response
+        return entity["nearest_train_station"].values[0]

@@ -19,16 +19,16 @@ city_2 = "Abergement le Petit"
 city_3 = "Viodos Abense de Bas"
 city_4 = "Marseille"
 city_5 = "Chauny"
-city_6 = "paris gare de lyon"
+city_6 = "île-de-France"
 
-sentence = f"De {city_6} à {city_4}."
+sentence = f"Je souhaite aller de l'{city_6} à {city_4}."
 
 inferences = visualizer.pipeline(sentence)
 
 for res in inferences:
-    search_result = CityToTrainHelper.fuzzy_search(res["city"])
+    search_result = CityToTrainHelper.fuzzy_search(res["place"])
     closest_train_station = CityToTrainHelper.get_closest_train_station(search_result["name"])
     res["train_station"] = closest_train_station
-    res["city"] = search_result["name"]
+    res["place"] = search_result["name"]
 
 print(inferences)
