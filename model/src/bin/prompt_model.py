@@ -5,7 +5,7 @@ src_dir = os.path.join(os.getcwd(), "..", "..")
 
 sys.path.append(os.path.abspath(src_dir))
 
-from src.helpers.city_to_train_station import VisualizerHelper
+from src.helpers.city_to_train_station import CityToTrainHelper
 from src.utils.visualizer import Visualizer
 
 print("============================================================")
@@ -19,14 +19,15 @@ city_2 = "Abergement le Petit"
 city_3 = "Viodos Abense de Bas"
 city_4 = "Marseille"
 city_5 = "Chauny"
-city_6 = "Bourguignon sous Coucy"
+city_6 = "Paris gare de lyon"
 
-sentence = f"Je souhaite aller de {city_1} à {city_2}."
+sentence = f"De {city_6} à {city_2}."
 
 inferences = visualizer.pipeline(sentence)
 
 for res in inferences:
-    train_station = VisualizerHelper.get_nearest_station(res["city"])
-    res["Train station"] = train_station["LIBELLE"].values[0]
+    closest_train_station = CityToTrainHelper.get_closest_train_station(res["city"])
+    res["train_station"] = closest_train_station["train_station"]
+    res["city"] = closest_train_station["name"]
 
 print(inferences)

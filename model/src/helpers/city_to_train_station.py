@@ -1,14 +1,13 @@
-import os
-
 import numpy as np
 import pandas as pd
+from rapidfuzz import process
 
 
-class VisualizerHelper:
-    train_station_df = pd.read_csv('../data/liste-des-gares.csv', sep=';')
-    cities_df = pd.read_csv('../data/cities.csv')
+class CityToTrainHelper:
+    train_station_df = pd.read_csv('../../../data/liste-des-gares.csv', sep=';')
+    cities_df = pd.read_csv('../../../data/cities.csv')
+    all_names_df = pd.read_csv('../../../data/cities_and_train_stations.csv')
 
-    @staticmethod
     def __haversine_vectorized(lat1, lon1, lat2, lon2):
         lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
 
@@ -24,7 +23,7 @@ class VisualizerHelper:
         return distance
 
     @classmethod
-    def get_nearest_station(cls, city_name):
+    def calculate_nearest_station(cls, city_name):
         city = cls.cities_df.loc[cls.cities_df["label"] == city_name]
 
         if city.empty:
@@ -35,7 +34,7 @@ class VisualizerHelper:
 
         cls.train_station_df[['lat', 'lon']] = cls.train_station_df['C_GEO'].str.split(',', expand=True).astype(float)
 
-        cls.train_station_df['distance'] = VisualizerHelper.__haversine_vectorized(
+        cls.train_station_df['distance'] = cls.__haversine_vectorized(
             coord_1[0], coord_1[1],
             cls.train_station_df['lat'].values, cls.train_station_df['lon'].values
         )
@@ -43,4 +42,53 @@ class VisualizerHelper:
         distance_df = cls.train_station_df[['distance', 'LIBELLE']].copy()
         return distance_df.loc[distance_df["distance"].min() == distance_df["distance"]]
 
+    @classmethod
+    def fuzzy_search(cls, name):
+        name = name.lower().replace("-", " ")
+        result_df = []
+
+        result_label = process.extractOne(name, cls.all_names_df["label"].values)
+        result_region = process.extractOne(name, cls.all_names_df["region"].values)
+        result_department = process.extractOne(name, cls.all_names_df["department"].values)
+
+        result_df.append(
+            {"name": result_label[0], "score": result_label[1], "class_name": "city"}
+        )
+
+        result_df.append(
+            {"name": result_region[0], "score": result_region[1], "class_name": "region"}
+        )
+        
+        result_df.append(
+            {"name": result_department[0], "score": result_department[1], "class_name": "department"}
+        )
+
+        result_df = pd.DataFrame(result_df)
+
+        if not result_df.empty:
+            best_result = result_df.loc[result_df["score"].idxmax()]
+            return {
+                "name": best_result["name"],
+                "class_name": best_result["class_name"]
+            }
+        else:
+            return None
+    
+    @classmethod
+    def get_closest_train_station(cls, name):
+        fuz_searched_name = cls.fuzzy_search(name)
+        
+        train_station = cls.all_names_df.loc[
+            (cls.all_names_df["class_name"] == fuz_searched_name["class_name"]) &
+            (cls.all_names_df["label"] == fuz_searched_name["name"])
+        ]
+
+        if train_station.empty:
+            return None
+
+        response = train_station["nearest_train_station"].values[0]
+        return {
+            "name": fuz_searched_name["name"],
+            "train_station": response
+        } 
 

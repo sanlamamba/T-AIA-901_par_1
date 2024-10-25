@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class CityType(Enum):
     intermediary = "intermediary"
     arrival = "arrival"

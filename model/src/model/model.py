@@ -23,19 +23,19 @@ class BertForSequenceClassification(nn.Module):
 
         return output_depart
 
-    def save_weights_and_biases(self, file_name:str, path:str=None):
+    def save_weights_and_biases(self, file_name:str, model_name:str="city_nlp", path:str=None):
         if path != None:
             model_path= os.path.join(path, f"{file_name}")
         else: 
-            model_path= os.path.join(os.getcwd(), f"../../processed/model_2/{file_name}")
+            model_path= os.path.join(os.getcwd(), f"../../processed/{model_name}/{file_name}")
         state_dict = {k.replace("module.", ""): v for k, v in self.state_dict().items()}
         torch.save(state_dict, model_path)
 
-    def load(self, file_name, path = None):
+    def load(self, file_name, model_name:str="city_nlp", path = None):
         if path:
             model_path = os.path.join(path, f"{file_name}")
         else:
-            model_path = os.path.join(os.getcwd(), f"../../processed/model_2/{file_name}")
+            model_path = os.path.join(os.getcwd(), f"../../processed/{model_name}/{file_name}")
         self.load_state_dict(torch.load(
             model_path, 
             weights_only=True, 
