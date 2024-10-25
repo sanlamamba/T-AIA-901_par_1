@@ -4,6 +4,9 @@ from rapidfuzz import process
 
 
 class CityToTrainHelper:
+    # train_station_df = pd.read_csv('../data/liste-des-gares.csv', sep=';')
+    # cities_df = pd.read_csv('../data/cities.csv')
+    # all_names_df = pd.read_csv('../data/cities_and_train_stations.csv')
     train_station_df = pd.read_csv('../../../data/liste-des-gares.csv', sep=';')
     cities_df = pd.read_csv('../../../data/cities.csv')
     all_names_df = pd.read_csv('../../../data/cities_and_train_stations.csv')
@@ -76,19 +79,16 @@ class CityToTrainHelper:
     
     @classmethod
     def get_closest_train_station(cls, name):
-        fuz_searched_name = cls.fuzzy_search(name)
-        
-        train_station = cls.all_names_df.loc[
-            (cls.all_names_df["class_name"] == fuz_searched_name["class_name"]) &
-            (cls.all_names_df["label"] == fuz_searched_name["name"])
+        entity = cls.all_names_df.loc[
+            cls.all_names_df["label"] == name
         ]
 
-        if train_station.empty:
+        if entity.empty:
             return None
 
-        response = train_station["nearest_train_station"].values[0]
-        return {
-            "name": fuz_searched_name["name"],
-            "train_station": response
-        } 
+        if (entity["class_name"].values[0] == "train_station"):
+            return name
 
+        response = entity["nearest_train_station"].values[0]
+
+        return response
