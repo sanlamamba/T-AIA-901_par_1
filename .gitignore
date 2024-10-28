@@ -133,3 +133,7 @@ cython_debug/
 
 # Ignore VSCode settings
 .vscode/
+
+
+# Ignore all html files
+*.html
