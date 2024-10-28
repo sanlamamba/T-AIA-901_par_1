@@ -23,7 +23,8 @@
    - [Pathfinding Endpoint](#pathfinding-endpoint)
    - [General Process Endpoint](#general-process-endpoint)
 8. [Implementation Details](#implementation-details)
-9. [Conclusion](#conclusion)
+9. [Running initialization Vosk](#vosk-init)
+10. [Conclusion](#conclusion)
     
 ## Introduction
 
@@ -1066,6 +1067,11 @@ def register_routes(api):
   - **Map Files**: Accessible via `/static/maps/{filename}`.
 - **Usage**: Primarily used to serve client-side assets and dynamically generated map files resulting from pathfinding operations.
     
+## Initialize Vosk
+  You can either download vosk manually and place it inside the app/models folder (unzipped) such as that 
+  it should be API/app/models/vosk-model... or you can run the bash command setup_vosk.sh by running
+  ./setup_vosk.sh only on linux and darwin (macOS) systems
+
 ## Conclusion
 
 This API offers a robust and organized backend solution integrating multiple services to provide comprehensive functionalities ranging from user management to advanced text processing and pathfinding. By organizing endpoints into dedicated namespaces and employing consistent data models and error handling practices, the API ensures scalability, maintainability, and ease of use for both developers and clients.
