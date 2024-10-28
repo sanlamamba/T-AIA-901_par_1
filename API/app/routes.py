@@ -223,6 +223,7 @@ def register_routes(api):
 
             try:
                 result = pathfinding_service.find_path(start_name, end_name, algorithm)
+                result['algorithm'] = algorithm
                 if 'error' in result:
                     abort(400, result['error'])
                 return {
