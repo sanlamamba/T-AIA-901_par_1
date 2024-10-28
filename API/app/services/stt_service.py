@@ -4,8 +4,14 @@ import wave
 import tempfile
 from vosk import Model, KaldiRecognizer
 import soundfile as sf
+from config import config
 
-MODEL_PATH = "/home/wild/Desktop/epitech/T-AIA-901/T-AIA-901_par_1/API/app/models/vosk-model-fr-0.22"
+vosk_models = {
+    'fr-small': 'vosk-model-small-fr-0.22',
+    'fr': 'vosk-model-fr-0.22',
+}
+MODEL_NAME = vosk_models["fr-small"]
+MODEL_PATH = config['basedir'] + "/app/models"  + "/" + MODEL_NAME
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model path '{MODEL_PATH}' does not exist")
@@ -20,6 +26,7 @@ def process_audio_file(audio_bytes):
     Returns:
         str: The transcribed text.
     """
+
     with tempfile.NamedTemporaryFile(suffix=".wav") as temp_audio_file:
         temp_audio_file.write(audio_bytes)
         temp_audio_file.flush()

@@ -1,4 +1,4 @@
-
+import os
 from flask import request, send_from_directory, abort, current_app
 from flask_restx import Resource, Namespace, fields
 from werkzeug.utils import secure_filename
@@ -99,11 +99,7 @@ def register_routes(api):
         @stt_ns.expect(upload_parser)
         def post(self):
             files = request.files
-            audio_file = files.get('file')
-            
-            print(audio_file)
-            
-           
+            audio_file = files.get('file')     
             if audio_file and allowed_file(audio_file.filename):
                 try:
                     audio_bytes = audio_file.read()
@@ -113,7 +109,6 @@ def register_routes(api):
                     return {'transcript': transcript}, 200
                 except Exception as e:
                     abort(400, str(e))
-           
 
     ner_model = ner_ns.model('TextInput', {
         'text': fields.String(required=True, description='Text input')
@@ -135,29 +130,46 @@ def register_routes(api):
             return {'entities': entities}, 200
 
     path_model = path_ns.model('PathInput', {
-        'start': fields.String(required=True, description='Start location'),
-        'end': fields.String(required=True, description='End location')
+        'start': fields.String(required=True, description='Start station code'),
+        'end': fields.String(required=True, description='End station code'),
+        'algorithm': fields.String(
+            required=False,
+            description='Algorithm to use',
+            enum=['AStar', 'Dijkstra', 'BFS', 'DFS', 'BellmanFord', 'UCS', 'BidirectionalAStar'],
+            default='AStar')
     })
-
+    
+    
     @path_ns.route('/')
     class PathfindingResource(Resource):
         @path_ns.doc('find_path')
         @path_ns.expect(path_model)
         def post(self):
-            """Find the optimal path"""
+            """Find the optimal path using the specified algorithm."""
             data = request.json
-            start = data.get('start')
-            end = data.get('end')
+            start_name = data.get('start')
+            end_name = data.get('end')
+            algorithm = data.get('algorithm', 'AStar')
 
-            if not start or not end:
-                abort(400, 'Start and end locations are required')
+            if not start_name or not end_name:
+                abort(400, 'Start and end station names are required')
 
-            path = pathfinding_service.find_path(start, end)
-            return {'path': path}, 200
+            result = pathfinding_service.find_path(start_name, end_name, algorithm)
+
+            if 'error' in result:
+                abort(400, result['error'])
+
+            return result, 200
 
     @api.route('/static/<path:filename>', doc=False)
     class StaticFileResource(Resource):
         def get(self, filename):
             """Serve static files (e.g., client-side HTML and JS)"""
             static_folder = current_app.static_folder or 'static'
+            return send_from_directory(static_folder, filename)
+    @api.route('/static/maps/<path:filename>', doc=False)
+    class StaticMapResource(Resource):
+        def get(self, filename):
+            """Serve map files."""
+            static_folder = os.path.join(current_app.static_folder or 'static', 'maps')
             return send_from_directory(static_folder, filename)
