@@ -1,4 +1,4 @@
-<img src="./assets/train_rails.jpg" style="width: 100%; height: 150px; object-fit: cover;" alt="App Screenshot">
+<img src="./assets/train_rails.png" alt="App Screenshot">
 
 # NLP - Train itinary
 
