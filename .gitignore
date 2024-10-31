@@ -134,6 +134,20 @@ cython_debug/
 # Ignore VSCode settings
 .vscode/
 
+# Mac OS
+.DS_Store
+
+# Dataset
+data/dataset/*
+!data/dataset/brute_sentences.csv
+!data/dataset/brute_sentences_2.csv
+!data/dataset/cities.csv
+
+# Model processed
+**/processed/**/*.pth
+
+# AI Model
+!model/**/models/
 
 # Ignore all html files
 *.html

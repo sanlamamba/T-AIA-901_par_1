@@ -1,0 +1,44 @@
+name: myenv
+
+channels:
+ - defaults
+ - anaconda
+ - nvidia
+ - conda-forge
+ - pytorch
+
+dependencies:
+  - pandas
+  - numpy
+  - plotly
+  - matplotlib
+  - seaborn
+  - azure-storage-blob
+  - anaconda
+  - transformers
+  - torchtext
+  - pytorch
+  - torchvision
+  - torchaudio
+  - spacy
+  - sympy=1.13.1
+  - geopy
+  - rapidfuzz
+  - pip
+  - pip:
+      - opencv-python
+      - opencv-python-headless
+      - opencv-contrib-python
+      - jupyterlab-lsp
+      - python-lsp-server
+      - jupyter
+      - notebook
+      - python-dotenv
+      - tqdm
+      # - torch
+      # - torchvision
+      # - torchaudio
+      # - chardet
+      # - torchserve
+      # - sagemaker
+      # - boto3
