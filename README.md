@@ -1,6 +1,4 @@
-<!-- ## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
+<img src="./assets/train_rails.jpg" style="width: 100%; height: 150px; object-fit: cover;" alt="App Screenshot">
 
 # NLP - Train itinary
 
@@ -14,10 +12,12 @@ This project was the occasion to train several models and pick the best one afte
 # Progress
 The project is still ongoing, and a lot of things need to be finished. The end of this project is estimated to happen in January.
 
+Here is a list of features we are considering adding:
+- Authentification
+- History for the previous itinaries
+
 # Models explanations and setup
 You can head to ./model/README.md to get further details on how everything work.
-
-
 
 ## Authors
 
