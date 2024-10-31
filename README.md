@@ -19,6 +19,11 @@ Here is a list of features we are considering adding:
 # Models explanations and setup
 You can head to ./model/README.md to get further details on how everything work.
 
+# Frontend screenshots
+
+Main app (will more than likely change)
+<img src="./assets/frontend_screen_1.png" alt="App Screenshot">
+
 ## Authors
 
 - [@LeguyDany](https://www.github.com/LeguyDany)
