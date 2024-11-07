@@ -23,7 +23,7 @@ export default function ResultCard(){
 
             <div className="pt-4 h-full ">
             {gares.map((gare) => (
-                    <div className="w-full mb-3">
+                    <div key={gare.id} className="w-full mb-3">
                         <div className="text-sm text-slate-500">{gare.label == "Step" ? "Arrêt " + gare.id : gare.label}</div>
                         <div className="flex justify-between items-center">
                             <div className="text-lg font-semibold">{gare.nom}</div>
