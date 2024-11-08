@@ -4,29 +4,23 @@ import { FormEvent } from "react";
 import { EventEmitter } from "stream";
 import {circle} from "../(assets)/circle-regular.svg"
 
-export default function ResultCard(){
-    const gares = [
-        { id: 0, label : "From",  nom: "Gare de Lyon", chiffre: 10 },
-        { id: 1, label : "Step", nom: "Gare du Nord", chiffre: 6 },
-        { id: 2, label : "Step", nom: "Sarcelles", chiffre: 8 },
-        { id: 3, label : "Step", nom: "Kremlin-Bicêtre", chiffre: 2 },
-        { id: 4, label : "Step", nom: "Marseille", chiffre: 16 },
-        { id: 5, label : "Destination", nom: "Gare Montparnasse", chiffre : 5 },
-      ];
+
+export default function ResultCard({mapData}){
+ 
     return(
       <>
         <div className="bg-white h-min min-h-96 max-h-128 w-1/3 border-solid border-2 border-slate-100 rounded-lg shadow-lg p-8 overflow-auto z-10">
-            <div className="grid gap-y-4">
-                <h1 className="text-2xl font-semibold">Votre trajet </h1>
+            <div className="w-full bg-white sticky top-0 z-20">
+                <h1 className="text-2xl font-semibold mb-4">Votre trajet </h1>
                 <hr />
             </div>
 
-            <div className="pt-4 h-full ">
-            {gares.map((gare) => (
-                    <div key={gare.id} className="w-full mb-3">
-                        <div className="text-sm text-slate-500">{gare.label == "Step" ? "Arrêt " + gare.id : gare.label}</div>
+            <div className="h-full z-19">
+            {mapData.path.map((gare) => (
+                    <div key={gare} className="w-full mb-3">
+                        <div className="text-sm text-slate-500">{"From"}</div>
                         <div className="flex justify-between items-center">
-                            <div className="text-lg font-semibold">{gare.nom}</div>
+                            <div className="text-lg font-semibold">{gare}</div>
                             <div className="flex justify-between gap-6 text-sm text-black-500">
                                 <div>{gare.chiffre}mn</div>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className={`svgClass ${gare.label == "From" ? 'fill-green-500' : gare.label == "Destination" ? 'fill-red-500' : 'fill-slate-500'}`}>
