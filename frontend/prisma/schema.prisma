@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["createMany"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Historique {
+  id    String    @id @default(cuid())
+  userId String
+  prompt String
+  mapUrl String
+  etapes Etape[]
+}
+
+model Etape {
+  id       Int  @id @default(autoincrement())
+  historique   Historique @relation(fields: [historiqueId], references: [id])
+  historiqueId String
+  ville String
+  duree Int
+  debut Boolean
+  fin Boolean
+}

@@ -18,3 +18,7 @@ html, body, #__next {
   .svgClassChatbar{
     width: 20px;
   }
+
+  .svgClassLogin{
+    width: 30px;
+  }
