@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Historique {
-  id    String    @id @default(cuid())
+  id    Int    @id @default(autoincrement())
   userId String
   prompt String
   mapUrl String
@@ -22,9 +22,8 @@ model Historique {
 model Etape {
   id       Int  @id @default(autoincrement())
   historique   Historique @relation(fields: [historiqueId], references: [id])
-  historiqueId String
+  historiqueId Int
   ville String
   duree Int
-  debut Boolean
-  fin Boolean
+  label String
 }
