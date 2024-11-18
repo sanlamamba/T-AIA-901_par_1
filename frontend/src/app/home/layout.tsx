@@ -2,7 +2,8 @@
 
 import '../globals.css'
 import { useRouter } from 'next/navigation'
-import { AppWrapper } from '../context/historiqueContext'
+import { HistoriqueContextProvider } from '../context/historiqueContext'
+
 
 import {
   ClerkProvider,
@@ -38,9 +39,9 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </div>
-          <AppWrapper>
+          <HistoriqueContextProvider>
             {children}
-          </AppWrapper>
+          </HistoriqueContextProvider>
     </ClerkProvider>
   )
 }

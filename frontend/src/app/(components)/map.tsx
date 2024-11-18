@@ -1,22 +1,22 @@
 "use client";
 
-import { FormEvent } from "react";
-import { EventEmitter } from "stream";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { baseURL } from "../context/axiosInstance";
+import { useHistoriqueContext } from "../context/historiqueContext";
 
-export default function Map({mapUrl}) {
-  const getMap = () => {
-    if (mapUrl == "/assets/map.html") return mapUrl;
-    let result = baseURL + mapUrl;
-    return result;
-  };
+export default function Map({}) {
+  const { selectedHistorique } = useHistoriqueContext();
+  const [ mapUrl, setMapUrl ] = useState({})
+
+  useEffect(()=>{    
+    selectedHistorique.mapUrl == null ? setMapUrl("/assets/map.html") : setMapUrl(`${baseURL}${selectedHistorique.mapUrl}`)
+  }, [selectedHistorique])
 
   return (
     <>
       <iframe
         className="flex items-center justify-center w-screen h-screen  -z-50"
-        src={getMap()}
+        src={mapUrl}
         width="100%"
       ></iframe>
     </>

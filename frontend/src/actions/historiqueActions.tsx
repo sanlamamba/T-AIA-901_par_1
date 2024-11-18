@@ -6,7 +6,7 @@ import { currentUser } from '@clerk/nextjs/server'
 const prisma = new PrismaClient()
 
 export interface Historique {
-    userId : number
+    userId : string,
     prompt : string,
     mapUrl : string,
     etapes : Etape[]
@@ -33,17 +33,38 @@ export async function createHistorique(historique_ : Historique) {
         })),
       },
     }
-    const result = await prisma.historique.create({ data: historique })
+    const createResult = await prisma.historique.create({ data: historique })
+    const result = await getHistoriquesId(createResult.id)
     return result
   }
 }
 
-export async function getHistoriquesByUserId(userId_ : string | undefined){
+export async function getHistoriquesByUserId(userId_ : string ){
   if(userId_){
     const result = await prisma.historique.findMany({
+      include: {
+        etapes: true,
+      },
       where: {
         userId: {
           equals: userId_,
+        },
+      },
+    })
+  
+    return result;
+  }
+}
+
+export async function getHistoriquesId(id_ : number ){
+  if(id_){
+    const result = await prisma.historique.findFirst({
+      include: {
+        etapes: true,
+      },
+      where: {
+        id: {
+          equals: id_,
         },
       },
     })

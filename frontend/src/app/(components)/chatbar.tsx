@@ -1,8 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { processAudio } from "../context/requestsUtils";
+import { toast } from "react-toastify";
 
 export default function useChatBar(props) {
   const { onClick } = props;
@@ -16,7 +17,7 @@ export default function useChatBar(props) {
       startRecording();
       setIsRecording(true);
     } catch {
-      alert("erreur !");
+      toast.error(`Une erreur s'est produite lors de l'enregistrement.`)
     }
   };
 
@@ -26,7 +27,7 @@ export default function useChatBar(props) {
       await stopRecording();
       await handleSave();
     } catch {
-      alert("erreur !!!");
+      toast.error(`Une erreur s'est produite lors de l'enregistrement.`)
     }
   };
 
@@ -36,13 +37,11 @@ export default function useChatBar(props) {
     const formData = new FormData();
 
     formData.append("file", audioFile);
-    console.log("toto : "+ formData)
     await handleAudio()
   };
 
   const handleAudio = async()=>{
     setPrompt(await processAudio(mediaBlobUrl))
-    console.log(prompt);
   }
 
   return {

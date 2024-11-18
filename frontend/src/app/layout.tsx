@@ -2,6 +2,9 @@
 
 import './globals.css'
 import {ClerkProvider} from '@clerk/nextjs'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const metadata = {
   title: 'MapGpt',
   description: 'Un ChatGpt pour trouver ton itinéraire !',
@@ -16,6 +19,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+        <ToastContainer />
           {children}
         </body>
       </html>
