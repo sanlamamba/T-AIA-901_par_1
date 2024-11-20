@@ -5,11 +5,7 @@ import { useHistoriqueContext } from "../context/historiqueContext";
 
 export default function ResultCard({}){
     const { selectedHistorique } = useHistoriqueContext();
-    if (!selectedHistorique || !selectedHistorique.etapes) {
-        return (
-            <><div></div></>
-        );
-    }
+    const tempsTotal = selectedHistorique?.etapes?.reduce((total, etape) => total + etape.duree, 0) || 0;
 
     return(
       <>
@@ -44,7 +40,7 @@ export default function ResultCard({}){
                 <div className="flex justify-between items-center mt-2">
                     <div className="text-sm text-slate-500">Temps de trajet total</div>
                     <div className="flex justify-between gap-6 text-sm text-black-500">
-                        <div>150mn</div>
+                        <div>{tempsTotal}mn</div>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className={`svgClass fill-white-500`}>
                             <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
                         </svg>

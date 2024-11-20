@@ -50,6 +50,11 @@ export async function getHistoriquesByUserId(userId_ : string ){
           equals: userId_,
         },
       },
+      orderBy: [
+        {
+          id: 'desc',
+        }
+      ],
     })
   
     return result;

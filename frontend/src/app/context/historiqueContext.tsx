@@ -8,7 +8,7 @@ import { Historique, createHistorique } from '@/actions/historiqueActions';
 const HistoriqueContext = createContext({
   userId: null,
   selectedHistorique: {},
-  historiques: {},
+  historiques: [{}],
   fetchHistorique: () => {},
   newHistorique: () => {}, 
 });
@@ -25,7 +25,6 @@ export const HistoriqueContextProvider = ({ children }) => {
       if (userId) {
         const result = await getHistoriquesByUserId(userId);
         setHistoriques(result);
-        //console.log('Liste des historiques :' + JSON.stringify(historiques));
       }
     } catch (error) {
       console.error('Erreur lors du chargement des historiques:', error);
@@ -52,8 +51,11 @@ export const HistoriqueContextProvider = ({ children }) => {
       };
 
       const resultHistorique = await createHistorique(historique);
-      setSelectedHistorique(resultHistorique);
-      //console.log('Selected histo :' + JSON.stringify(resultHistorique));
+      setSelectedHistorique(selectedHistorique => ({
+        ...selectedHistorique,
+        ...resultHistorique
+      }));
+      
       fetchHistorique(); // Rafraîchit la liste après ajout
     } catch (error) {
       console.error('Erreur lors de la création de l’historique:', error);

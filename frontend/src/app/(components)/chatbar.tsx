@@ -48,7 +48,8 @@ export default function useChatBar(props) {
     prompt : prompt,
     chatbar : (
     <>
-      <div className="w-full border-solid border-2 border-slate-100 rounded-full shadow-lg p-8 bg-white z-10">
+    <div className="flex w-full justify-center">
+    <div className="w-3/4 border-solid border-2 border-slate-100 rounded-full shadow-lg pr-8 pl-8 pt-3 pb-3 bg-white z-10">
         <form className="flex gap-4 items-center">
           <input
             type="text"
@@ -102,6 +103,8 @@ export default function useChatBar(props) {
           </div>
         </form>
       </div>
+    </div>
+      
     </>
   )}
 }
