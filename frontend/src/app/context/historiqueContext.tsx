@@ -1,16 +1,28 @@
-'use client';
-import { useAuth } from '@clerk/nextjs';
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { getHistoriquesByUserId } from '@/actions/historiqueActions';
-import { processPathfinding } from './requestsUtils';
-import { Historique, createHistorique } from '@/actions/historiqueActions';
+"use client";
+
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
+import { useAuth } from "@clerk/nextjs";
+import {
+  getHistoriquesByUserId,
+  createHistorique,
+  Historique,
+} from "@/actions/historiqueActions";
+import { processPathfinding } from "./requestsUtils";
 
 const HistoriqueContext = createContext({
   userId: null,
   selectedHistorique: {},
-  historiques: [{}],
+  historiques: [],
   fetchHistorique: () => {},
-  newHistorique: () => {}, 
+  newHistorique: () => {},
+  setSelectedHistorique: () => {},
+  resetSelectedHistorique: () => {}, 
 });
 
 export const useHistoriqueContext = () => useContext(HistoriqueContext);
@@ -18,55 +30,60 @@ export const useHistoriqueContext = () => useContext(HistoriqueContext);
 export const HistoriqueContextProvider = ({ children }) => {
   const { userId } = useAuth();
   const [selectedHistorique, setSelectedHistorique] = useState({});
-  const [historiques, setHistoriques] = useState({});
+  const [historiques, setHistoriques] = useState([]);
 
-  const fetchHistorique = async () => {
+  const fetchHistorique = useCallback(async () => {
+    if (!userId) return;
+
     try {
-      if (userId) {
-        const result = await getHistoriquesByUserId(userId);
-        setHistoriques(result);
+      const result = await getHistoriquesByUserId(userId);
+      setHistoriques(result || []);
+    } catch (error) {
+      console.error("Erreur lors du chargement des historiques:", error);
+    }
+  }, [userId]);
+
+  const newHistorique = useCallback(
+    async (prompt) => {
+      if (!userId) return;
+
+      try {
+        const optimalPath = await processPathfinding(prompt);
+
+        const historique: Historique = {
+          userId,
+          prompt,
+          mapUrl: optimalPath.pathfinding_result.map_url,
+          etapes: optimalPath.pathfinding_result.path.map((etape, index) => ({
+            ville: etape,
+            duree: 10,
+            label:
+              index === 0
+                ? "From"
+                : index === optimalPath.pathfinding_result.path.length - 1
+                ? "Destination"
+                : "Step",
+          })),
+        };
+
+        const resultHistorique = await createHistorique(historique);
+        setSelectedHistorique((prev) => ({ ...prev, ...resultHistorique }));
+
+        await fetchHistorique();
+      } catch (error) {
+        console.error("Erreur lors de la création de l’historique:", error);
       }
-    } catch (error) {
-      console.error('Erreur lors du chargement des historiques:', error);
-    }
-  };
+    },
+    [userId, fetchHistorique]
+  );
 
-  const newHistorique = async (prompt : string) => { 
-    try {
-      const optimalPath = await processPathfinding(prompt);
-      const historique : Historique = {
-        userId: userId ?? 'XXX',
-        prompt, // Utiliser le prompt reçu
-        mapUrl: optimalPath.pathfinding_result.map_url,
-        etapes: optimalPath.pathfinding_result.path.map((etape, index) => ({
-          ville: etape,
-          duree: 10, // À remplacer par la durée réelle
-          label:
-            index === 0
-              ? 'From'
-              : index === optimalPath.pathfinding_result.path.length - 1
-              ? 'Destination'
-              : 'Step',
-        })),
-      };
-
-      const resultHistorique = await createHistorique(historique);
-      setSelectedHistorique(selectedHistorique => ({
-        ...selectedHistorique,
-        ...resultHistorique
-      }));
-      
-      fetchHistorique(); // Rafraîchit la liste après ajout
-    } catch (error) {
-      console.error('Erreur lors de la création de l’historique:', error);
-    }
+  const resetSelectedHistorique = () => {
+    setSelectedHistorique({});
   };
 
   useEffect(() => {
-    if (userId) {
-      fetchHistorique();
-    }
-  }, [userId]);
+    fetchHistorique();
+  }, [fetchHistorique]);
 
   return (
     <HistoriqueContext.Provider
@@ -76,7 +93,8 @@ export const HistoriqueContextProvider = ({ children }) => {
         historiques,
         fetchHistorique,
         newHistorique,
-        setSelectedHistorique
+        setSelectedHistorique,
+        resetSelectedHistorique,
       }}
     >
       {children}
