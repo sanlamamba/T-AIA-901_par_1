@@ -48,7 +48,7 @@ general_process_model = general_processes_ns.model('GeneralProcessInput', {
 })
 
 # Allowed file extensions for STT
-ALLOWED_EXTENSIONS = {'wav'}
+ALLOWED_EXTENSIONS = {'wav', 'mp3', 'ogg', 'flac'}
 
 def allowed_file(filename):
     return '.' in filename and \
