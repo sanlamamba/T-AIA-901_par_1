@@ -26,6 +26,7 @@
 9. [Running initialization Vosk](#vosk-init)
 10. [Conclusion](#conclusion)
     
+[known issues](#known-issues)
 ## Introduction
 
 This API serves as a comprehensive backend solution integrating multiple services such as User Management, Speech-to-Text (STT), Named Entity Recognition (NER), and Pathfinding. Additionally, it offers a general processing route that combines NER and Pathfinding to provide seamless functionality from text input to route optimization.
@@ -1093,3 +1094,19 @@ This API offers a robust and organized backend solution integrating multiple ser
 - **Automated Testing**: Develop tests to ensure the reliability and correctness of the API endpoints.
 
 Feel free to reach out for further assistance or if you need additional features and customizations!
+
+## known issues
+- ffmpeg error : if you encounter an error with ffmpeg, you can install it by running the following command
+  ```bash
+  sudo apt-get install ffmpeg
+  ```
+  if you are on windows, you can download ffmpeg from the official website and add it to your PATH
+
+- if you encounter an error with the vosk model, you can download it manually from the official website and place it in the app/models folder
+
+- Flask-restx error : if you encounter an error with flask-restx, you can install it by running the following command
+  ```bash
+  pip install --upgrade flask-restx
+  ```
+
+  
