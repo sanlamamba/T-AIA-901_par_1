@@ -1,0 +1,540 @@
+Je veux aller de {station1} à {station2}.,
+{station1} est ma destination.,
+Je pars de {station1} pour {station2}.,
+De {station1}, je vais à {station2}.,
+Peux-tu me guider de {station1} à {station2} ?,
+Mon train commence à {station1} et termine à {station2}.,
+Entre {station1} et {station2}, quel est le plus rapide ?,
+Je passe par {station1} avant d'aller à {station2}.,
+Le départ est prévu à {station1}, direction {station2}.,
+J'ai réservé un billet de {station1} vers {station2}.,
+{station1} est proche, mais je préfère partir de {station2}.,
+Je voyage de {station1} jusqu'à {station2}.,
+Est-ce que le trajet {station1}-{station2} est direct ?,
+Je cherche un trajet entre {station1} et {station2}.,
+Le train qui va de {station1} à {station2} est en retard.,
+{station1} ou {station2}, lequel est plus proche ?,
+Depuis {station1}, le prochain arrêt est-il {station2} ?,
+{station2} est plus loin que {station1}, non ?,
+Je fais une escale à {station1} avant de repartir pour {station2}.,
+Le train arrive à {station1} et continue vers {station2}.,
+Entre {station1} et {station2}, quel est le prix du billet ?,
+{station1} et {station2} sont mes deux options pour le trajet.,
+De {station1}, je dois me rendre à {station2} rapidement.,
+Si je commence à {station1}, comment atteindre {station2} ?,
+{station1} est le point de départ pour atteindre {station2}.,
+J'ai entendu que {station1} et {station2} sont bien connectées.,
+Y a-t-il un train qui passe par {station1} et va à {station2} ?,
+Pour aller à {station2}, dois-je partir de {station1} ?,
+Mon itinéraire inclut {station1} et finit à {station2}.,
+Je suis arrivé à {station1}, mais je dois aller à {station2}.,
+Combien de temps faut-il pour aller de {station1} à {station2} ?,
+Le trajet {station1} vers {station2} est-il en travaux ?,
+Je me demande si {station1} est bien avant {station2}.,
+Entre {station1} et {station2}, où dois-je changer de train ?,
+Le train de {station1} à {station2} part-il à l'heure ?,
+Depuis {station1}, à quelle heure part le train pour {station2} ?,
+Peut-on réserver une place entre {station1} et {station2} ?,
+Je pense voyager entre {station1} et {station2} demain.,
+Y a-t-il un arrêt à {station1} sur le chemin pour {station2} ?,
+Le train passe-t-il par {station1} avant d'arriver à {station2} ?,
+Je vais descendre à {station1} et prendre un autre train pour {station2}.,
+À partir de {station1}, comment rejoindre rapidement {station2} ?,
+De {station2} à {station1}, y a-t-il un retour direct ?,
+{station1} est sur ma route, mais je vais finalement à {station2}.,
+Quel est le meilleur chemin entre {station1} et {station2} ?,
+J'aimerais savoir si {station1} est loin de {station2}.,
+Dois-je descendre à {station1} ou continuer jusqu'à {station2} ?,
+{station1} ou {station2} pour commencer mon trajet ?,
+J'ai entendu dire que {station2} est plus fréquenté que {station1}.,
+Le train va-t-il d'abord à {station1}, puis à {station2} ?,
+De {station1} à {station2}, combien d'heures cela prend-il ?,
+Y a-t-il une correspondance entre {station1} et {station2} ?,
+Je dois passer par {station1} avant d'aller à {station2}.,
+Le train express s'arrête à {station1} mais pas à {station2}.,
+À quelle heure le train part-il de {station1} vers {station2} ?,
+Entre {station1} et {station2}, lequel est plus proche de Paris ?,
+Mon itinéraire va inclure {station1}, mais peut-être pas {station2}.,
+Est-ce que {station1} est accessible pour aller vers {station2} ?,
+{station2} est le terminus, mais je commence à {station1}.,
+Un aller-retour entre {station1} et {station2} est-il disponible ?,
+Je veux réserver un billet pour {station1} et revenir de {station2}.,
+Y a-t-il une réduction pour un trajet {station1} - {station2} ?,
+{station1} et {station2} sont sur la même ligne de train ?,
+Le train qui va de {station1} à {station2} est en grève.,
+De {station1} à {station2}, faut-il prendre une correspondance ?,
+Est-ce que {station1} et {station2} sont bien connectées ?,
+{station1} et {station2} : dans quel ordre les visiter ?,
+J'aimerais partir de {station1} mais finir à {station2}.,
+Le train part de {station2}, mais je monte à {station1}.,
+Est-il préférable de passer par {station1} pour aller à {station2} ?,
+{station1} est un arrêt avant d'arriver à {station2}.,
+Est-ce que je change à {station1} avant de continuer vers {station2} ?,
+Y a-t-il un train de nuit entre {station1} et {station2} ?,
+Je suis à {station2}, mais j'aimerais aller à {station1}.,
+{station1} est plus pratique pour commencer que {station2}.,
+De {station1} à {station2}, quelle est la fréquence des trains ?,
+{station1} est un arrêt, mais je descends à {station2}.,
+Je voyage avec un vélo entre {station1} et {station2}.,
+Dois-je réserver un billet pour le trajet {station1}-{station2} ?,
+{station1} est mieux connecté que {station2}, non ?,
+À {station1}, dois-je prendre un autre train pour {station2} ?,
+Peut-on aller directement de {station1} à {station2} sans arrêt ?,
+{station1} est ma station de départ pour aller à {station2}.,
+Je suis à {station1} mais j'aimerais aller jusqu'à {station2}.,
+{station2} est-elle bien reliée à {station1} en train ?,
+De {station1} à {station2}, quel est le coût du billet ?,
+{station1} et {station2} : lequel est plus proche de ma position ?,
+Je descends à {station1}, mais mon terminus est {station2}.,
+De {station1}, je fais une escale à {station2} avant d'arriver.,
+Est-ce que le train de {station1} passe par {station2} ?,
+Entre {station1} et {station2}, où s'arrête le train ?,
+Peut-on visiter {station1} et ensuite aller à {station2} ?,
+{station1} est mon point de départ pour rejoindre {station2}.,
+De {station1}, le prochain arrêt est-il bien {station2} ?,
+Dois-je prendre un train de {station1} pour atteindre {station2} ?,
+De {station1} à {station2}, quel est le trajet le plus rapide ?
+Est-ce que le train passant par {station1} s'arrête aussi à {station2} ?
+Je souhaite partir de {station1}, mais je dois aussi passer par {station2}.
+De {station1}, comment rejoindre {station2} avec une correspondance ?
+{station1} est ma gare de départ, et {station2} est mon terminus.
+Le train s’arrête-t-il à {station1} avant de rejoindre {station2} ?
+Y a-t-il un service de nuit entre {station1} et {station2} ?
+Si je prends un train à {station1}, arriverai-je directement à {station2} ?
+Combien de correspondances entre {station1} et {station2} ?
+Entre {station1} et {station2}, combien de temps dure le trajet ?
+Je suis actuellement à {station1}, comment me rendre à {station2} rapidement ?
+{station1} ou {station2}, laquelle est la meilleure option pour ce trajet ?
+Y a-t-il des retards entre {station1} et {station2} aujourd’hui ?
+Mon itinéraire passe par {station1}, puis continue vers {station2}.
+Depuis {station1}, dois-je changer à une autre gare pour atteindre {station2} ?
+Peut-on réserver un train express entre {station1} et {station2} ?
+Je dois partir de {station1} et faire un arrêt à {station2} avant de continuer.
+Est-ce que le train direct de {station1} à {station2} est en service ?
+{station1} est-elle sur la route vers {station2} ?
+Combien coûte un billet aller-retour entre {station1} et {station2} ?
+Depuis {station1}, quels sont les horaires pour {station2} ?
+De {station1}, pouvez-vous m’indiquer comment arriver à {station2} ?
+Est-ce qu’un train en retard à {station1} affecte le trajet vers {station2} ?
+Entre {station1} et {station2}, combien d'arrêts y a-t-il ?
+Quel est le dernier train partant de {station1} pour {station2} ?
+J’ai un billet pour {station2}, mais je pars de {station1}.
+Est-ce que je peux passer par {station1} en me rendant à {station2} ?
+{station1} et {station2} sont-elles bien desservies à cette heure ?
+Je dois prendre un train à {station1} pour rejoindre {station2}.
+À partir de {station1}, est-il possible d’aller à {station2} sans changement ?
+Mon train part de {station1}, mais je descends à {station2}.
+Y a-t-il des arrêts imprévus entre {station1} et {station2} ?
+Est-ce que le trajet entre {station1} et {station2} est direct ?
+Je vais voyager avec des bagages lourds de {station1} à {station2}.
+Quels sont les services disponibles à bord entre {station1} et {station2} ?
+Peut-on voyager avec un vélo entre {station1} et {station2} ?
+Si je pars de {station1}, quelle est la durée du trajet pour {station2} ?
+Je dois attraper un train à {station1} pour arriver à temps à {station2}.
+Quels sont les horaires de départ depuis {station1} pour aller à {station2} ?
+Y a-t-il une correspondance obligatoire entre {station1} et {station2} ?
+Combien de trains passent par {station1} en direction de {station2} ?
+Je pars de {station1} et fais un arrêt rapide à {station2}.
+De {station1}, quels autres arrêts y a-t-il avant {station2} ?
+Quel est le meilleur horaire pour aller de {station1} à {station2} ?
+Est-ce que le train express dessert {station1} et {station2} ?
+Je voudrais réserver un billet de train de {station1} à {station2}.
+Mon train commence à {station2}, mais je monte à {station1}.
+Je dois rejoindre {station1} rapidement avant de continuer vers {station2}.
+Y a-t-il un train en retard entre {station1} et {station2} ?
+De {station1} à {station2}, combien de trains sont disponibles aujourd’hui ?
+Je vais passer par {station1} et terminer mon trajet à {station2}.
+Est-ce que {station1} et {station2} sont bien desservies pendant la nuit ?
+Le trajet entre {station1} et {station2} est-il affecté par des grèves ?
+Entre {station1} et {station2}, quel itinéraire recommandez-vous ?
+Je vais de {station1} à {station2}, mais je dois m’arrêter à une autre gare.
+Quels trains directs partent de {station1} pour {station2} ?
+Je descends à {station1}, puis je continue vers {station2}.
+{station1} est-elle proche d’un autre arrêt sur la route vers {station2} ?
+Le dernier train de {station1} pour {station2} est à quelle heure ?
+{station1} est-elle sur le trajet entre ma position et {station2} ?
+Comment se rendre à {station1} depuis {station2} sans correspondance ?
+Est-ce que le trajet {station1} à {station2} inclut un arrêt à Paris ?
+Je dois rejoindre {station1} avant de partir vers {station2}.
+Y a-t-il un train toutes les heures entre {station1} et {station2} ?
+Je voudrais un horaire pour le trajet entre {station1} et {station2}.
+Entre {station1} et {station2}, quel est le temps d’attente moyen ?
+Je vais voyager avec un groupe entre {station1} et {station2}.
+Quels sont les arrêts principaux sur la ligne entre {station1} et {station2} ?
+Peut-on réserver un siège prioritaire entre {station1} et {station2} ?
+Est-ce qu’un train direct dessert {station1} et {station2} ?
+Je vais prendre un train de {station1} pour rejoindre {station2}.
+Depuis {station1}, quel est le prochain train qui va à {station2} ?
+Est-ce qu’il y a une correspondance entre {station1} et {station2} ?
+Le trajet entre {station1} et {station2} est-il affecté par des travaux ?
+De {station1}, combien de trains vont directement à {station2} ?
+Je fais une correspondance à {station1} avant d’aller à {station2}.
+Quels services sont disponibles sur la ligne entre {station1} et {station2} ?
+Est-ce que les trains passant par {station1} vont aussi à {station2} ?
+Peut-on voyager sans billet entre {station1} et {station2} ?
+Le trajet entre {station1} et {station2} nécessite-t-il un changement de gare ?
+À {station1}, dois-je changer de train pour aller à {station2} ?
+Combien de temps le train s’arrête-t-il à {station1} avant de repartir pour {station2} ?
+Est-ce que les horaires pour {station1} et {station2} ont changé récemment ?
+Y a-t-il une réduction pour les étudiants voyageant entre {station1} et {station2} ?
+De {station1} à {station2}, quels sont les arrêts principaux ?
+Est-il possible de réserver une cabine entre {station1} et {station2} ?
+Je veux partir de {station1} et arriver à {station2} sans correspondance.
+Entre {station1} et {station2}, quels trains offrent une classe premium ?
+Si je prends un train à {station2}, peut-il passer par {station1} ?
+Je dois descendre à {station1}, mais mon train continue vers {station2}.
+Le dernier train entre {station1} et {station2} part à quelle heure ?
+Est-ce que le train rapide dessert {station1} et {station2} ?
+De {station1}, où dois-je changer pour atteindre {station2} ?
+Peut-on voyager avec des animaux entre {station1} et {station2} ?
+Y a-t-il un train direct entre {station1} et {station2} pendant la nuit ?
+Je vais faire une pause à {station1} avant de repartir pour {station2}.
+Entre {station1} et {station2}, combien d’arrêts y a-t-il au total ?
+Le train passe-t-il par {station1} avant d’arriver à {station2} ?
+De {station1} à {station2}, faut-il prendre un autre train ?
+Je voyage entre {station1} et {station2}, quels billets sont disponibles ?
+Quels trains express partent de {station1} en direction de {station2} ?
+De {station1}, combien de temps dure le trajet jusqu’à {station2} ?
+Est-ce que je dois prendre un taxi de {station1} pour arriver à {station2} ?
+Le train entre {station1} et {station2} fonctionne-t-il ce week-end ?
+Depuis {station1}, y a-t-il des trains de nuit pour {station2} ?
+Je suis à {station1}, mais je dois atteindre {station2} avant 18h.
+Est-ce que les horaires entre {station1} et {station2} sont disponibles en ligne ?
+Y a-t-il des retards signalés sur la ligne entre {station1} et {station2} ?
+Quels sont les itinéraires alternatifs entre {station1} et {station2} ?
+Peut-on transporter des vélos entre {station1} et {station2} ?
+Combien de temps s’arrête le train à {station1} avant de continuer vers {station2} ?
+De {station1} à {station2}, y a-t-il des trains toutes les heures ?
+Je dois arriver à {station2} en partant de {station1}, quel est le meilleur horaire ?
+Est-ce qu’il y a des grèves affectant la ligne entre {station1} et {station2} ?
+Depuis {station1}, dois-je changer de train pour atteindre {station2} ?
+Quel est le dernier horaire pour aller de {station1} à {station2} aujourd’hui ?
+Je vais descendre à {station1}, mais je dois aussi atteindre {station2}.
+Entre {station1} et {station2}, quels sont les arrêts intermédiaires ?
+De {station1}, comment rejoindre {station2} le plus rapidement possible ?
+Le train de {station1} à {station2} passe-t-il par une autre grande gare ?
+Quels sont les trains directs entre {station1} et {station2} en semaine ?
+De {station1}, combien de correspondances pour arriver à {station2} ?
+Est-ce que je peux réserver un siège pour un train de {station1} à {station2} ?
+Le trajet entre {station1} et {station2} inclut-il des correspondances ?
+Entre {station1} et {station2}, combien de trains circulent en soirée ?
+Je veux voyager entre {station1} et {station2}, y a-t-il un train ce matin ?
+De {station1} à {station2}, quel est le coût approximatif du billet ?
+Est-ce qu’un train express dessert à la fois {station1} et {station2} ?
+Je vais partir de {station1}, mais j’aimerais visiter {station2} en chemin.
+Le train de {station1} à {station2} est-il opérationnel pendant les jours fériés ?
+Quels services sont proposés à bord pour le trajet entre {station1} et {station2} ?
+Si je pars de {station1}, puis-je rejoindre {station2} directement ?
+Quels sont les arrêts obligatoires entre {station1} et {station2} ?
+Le train de {station1} à {station2} est-il accessible aux personnes à mobilité réduite ?
+Y a-t-il des promotions pour les billets entre {station1} et {station2} ?
+De {station1} à {station2}, combien de temps faut-il pour arriver en train ?
+Est-ce que je dois réserver mon billet à l’avance pour aller de {station1} à {station2} ?
+De {station1} à {station2}, quel est le train le moins cher ?
+Quels sont les arrêts obligatoires entre {station1} et {station2} ?
+Est-ce que les horaires pour le trajet {station1}-{station2} ont changé ?
+Si je pars de {station1}, est-ce que j’arriverai directement à {station2} ?
+Le train de {station1} à {station2} s’arrête-t-il à Paris ?
+Depuis {station1}, quel est le prochain train pour {station2} ?
+Quels trains passent par {station1} avant d’aller à {station2} ?
+À quelle heure le dernier train quitte {station1} pour {station2} ?
+Peut-on voyager de {station1} à {station2} sans correspondance ?
+Y a-t-il des réductions pour les seniors entre {station1} et {station2} ?
+Le trajet entre {station1} et {station2} est-il direct ?
+Est-ce que le train express dessert {station1} et {station2} ?
+De {station1}, puis-je atteindre {station2} en moins de deux heures ?
+Quels sont les itinéraires possibles entre {station1} et {station2} ?
+Je vais partir de {station1}, mais je dois passer par {station2}.
+Le train entre {station1} et {station2} est-il opérationnel aujourd’hui ?
+Est-il possible de transporter une poussette entre {station1} et {station2} ?
+Y a-t-il des arrêts intermédiaires entre {station1} et {station2} ?
+Est-ce que le train rapide passe par {station1} en direction de {station2} ?
+Quels sont les services proposés sur le trajet {station1}-{station2} ?
+Depuis {station1}, dois-je prendre une correspondance pour aller à {station2} ?
+Je dois me rendre à {station2}, mais je pars de {station1}.
+Peut-on acheter des billets directement entre {station1} et {station2} ?
+Quels sont les trains disponibles entre {station1} et {station2} ce soir ?
+Est-ce que les trajets entre {station1} et {station2} sont affectés par des grèves ?
+Quel est le trajet le plus rapide pour aller de {station1} à {station2} ?
+De {station1} à {station2}, combien de correspondances sont nécessaires ?
+Est-ce que je peux réserver une place assise entre {station1} et {station2} ?
+Quels trains de nuit circulent entre {station1} et {station2} ?
+Peut-on voyager avec des bagages volumineux entre {station1} et {station2} ?
+Le train express de {station1} à {station2} passe-t-il par une grande gare ?
+Quels sont les arrêts principaux sur la ligne {station1}-{station2} ?
+Le dernier train entre {station1} et {station2} part-il à l’heure prévue ?
+Est-ce que les trains entre {station1} et {station2} offrent un service Wi-Fi ?
+Je vais voyager entre {station1} et {station2}, puis-je prendre mon vélo ?
+Quels trains directs relient {station1} et {station2} le matin ?
+Le train entre {station1} et {station2} fonctionne-t-il pendant les jours fériés ?
+Quels horaires sont disponibles pour les trajets entre {station1} et {station2} ?
+Est-ce que {station1} et {station2} sont bien connectées en soirée ?
+Y a-t-il des retards signalés sur la ligne {station1}-{station2} ?
+Le train de {station1} à {station2} s’arrête-t-il dans une autre grande ville ?
+À partir de {station1}, combien de temps faut-il pour arriver à {station2} ?
+Y a-t-il une correspondance obligatoire entre {station1} et {station2} ?
+Combien coûte un aller simple entre {station1} et {station2} ?
+Quels sont les trajets les plus courts entre {station1} et {station2} ?
+Peut-on prendre un train express entre {station1} et {station2} ?
+Quels trains circulent entre {station1} et {station2} pendant la nuit ?
+Est-ce que les étudiants bénéficient d’une réduction entre {station1} et {station2} ?
+Le train de {station1} à {station2} offre-t-il des places en première classe ?
+Entre {station1} et {station2}, combien d’arrêts sont prévus ?
+Je vais voyager entre {station1} et {station2}, quels services sont disponibles ?
+Quels trains partent le plus tôt entre {station1} et {station2} ?
+Est-ce que je dois réserver mon billet à l’avance pour {station1}-{station2} ?
+Quels sont les arrêts intermédiaires entre {station1} et {station2} ?
+Le train de {station1} à {station2} propose-t-il un service de restauration ?
+Peut-on réserver une place prioritaire entre {station1} et {station2} ?
+Quels sont les horaires des trains de nuit entre {station1} et {station2} ?
+De {station1}, comment rejoindre rapidement {station2} avec des correspondances ?
+Quels itinéraires alternatifs sont disponibles entre {station1} et {station2} ?
+Le trajet {station1}-{station2} est-il affecté par des travaux en cours ?
+Quels sont les services premium disponibles entre {station1} et {station2} ?
+Peut-on acheter un billet aller-retour entre {station1} et {station2} ?
+Je dois voyager entre {station1} et {station2}, quels horaires sont les meilleurs ?
+Quels trains express relient {station1} à {station2} en semaine ?
+Le train de {station1} à {station2} inclut-il une correspondance obligatoire ?
+Quels sont les horaires de départ depuis {station1} pour {station2} aujourd’hui ?
+Entre {station1} et {station2}, combien de trains circulent chaque jour ?
+Le trajet entre {station1} et {station2} inclut-il des arrêts longs ?
+Quels sont les horaires des trains directs entre {station1} et {station2} ?
+Est-ce que je peux prendre un train direct entre {station1} et {station2} le matin ?
+Combien coûte un billet aller-retour entre {station1} et {station2} ?
+Quels arrêts sont desservis sur la ligne {station1}-{station2} aujourd’hui ?
+Quels sont les services disponibles sur le train entre {station1} et {station2} ?
+Peut-on voyager avec un animal domestique entre {station1} et {station2} ?
+Le train express de {station1} à {station2} s’arrête-t-il à une grande gare ?
+Quels sont les arrêts obligatoires entre {station1} et {station2} en soirée ?
+Je suis à {station1}, quel est le prochain train pour {station2} ?
+Si je prends un train à {station1}, arriverai-je à {station2} avant 20h ?
+Y a-t-il un train qui part de {station1} et passe par {station2} ?
+Comment rejoindre {station2} depuis {station1} en prenant le train le moins cher ?
+De {station1}, quels sont les prochains arrêts avant {station2} ?
+À quelle heure le premier train quitte {station1} pour aller à {station2} ?
+Est-ce que le trajet entre {station1} et {station2} inclut des correspondances ?
+Je veux voyager avec des animaux entre {station1} et {station2}, est-ce possible ?
+Quels trains rapides relient {station1} à {station2} cet après-midi ?
+Est-ce que le train de {station1} à {station2} est déjà parti ?
+À partir de {station1}, est-il possible d’aller à {station2} sans correspondance ?
+Quels sont les horaires des trains entre {station1} et {station2} pendant les jours fériés ?
+Est-ce que je peux descendre à {station1} avant de continuer vers {station2} ?
+Je veux réserver un train entre {station1} et {station2}, comment faire ?
+Entre {station1} et {station2}, y a-t-il un train direct cette nuit ?
+De {station1}, quel est le train le plus rapide pour {station2} ?
+Si je commence à {station1}, combien de temps pour atteindre {station2} ?
+Quels services à bord sont disponibles pour un train de {station1} à {station2} ?
+Le train express dessert-il {station1} et continue-t-il vers {station2} ?
+Y a-t-il des retards sur la ligne reliant {station1} à {station2} aujourd’hui ?
+Je suis actuellement à {station2}, mais je dois rejoindre {station1}.
+Quel est le prix approximatif d’un billet aller simple entre {station1} et {station2} ?
+Quels sont les arrêts principaux entre {station1} et {station2} en soirée ?
+Puis-je réserver une place assise sur le trajet entre {station1} et {station2} ?
+Le train qui part de {station1} pour {station2} passe-t-il par une grande ville ?
+Quels sont les horaires du dernier train quittant {station1} pour {station2} ?
+Depuis {station1}, combien de correspondances avant d’arriver à {station2} ?
+Peut-on voyager en groupe entre {station1} et {station2} sans réservation ?
+Entre {station1} et {station2}, est-il nécessaire de changer de train ?
+Quels trains relient directement {station1} et {station2} tôt le matin ?
+Y a-t-il des travaux sur la ligne entre {station1} et {station2} cette semaine ?
+Quels itinéraires alternatifs sont possibles entre {station1} et {station2} ?
+Je dois arriver à {station2} rapidement, puis-je partir de {station1} sans correspondance ?
+Quels sont les trains de nuit qui passent par {station1} et vont à {station2} ?
+Le train express partant de {station1} s’arrête-t-il à {station2} ?
+Quels arrêts intermédiaires sont prévus entre {station1} et {station2} ce week-end ?
+Combien de temps le train s’arrête-t-il à {station1} avant de repartir pour {station2} ?
+Le train de {station1} à {station2} est-il complet pour demain matin ?
+Peut-on prendre des vélos sur les trains entre {station1} et {station2} ?
+Quels services premium sont disponibles entre {station1} et {station2} ?
+Le trajet entre {station1} et {station2} est-il direct ou faut-il une correspondance ?
+Quels sont les horaires de départ depuis {station1} pour atteindre {station2} aujourd’hui ?
+Puis-je acheter un billet aller-retour entre {station1} et {station2} ?
+Quels trains express circulent entre {station1} et {station2} ce matin ?
+Depuis {station1}, combien de temps faut-il pour atteindre {station2} sans arrêt ?
+Est-ce qu’un train dessert à la fois {station1} et {station2} après 22h ?
+De {station1} à {station2}, est-il possible de réserver une cabine ?
+Le train entre {station1} et {station2} propose-t-il un service Wi-Fi ?
+Je veux voyager en première classe entre {station1} et {station2}, est-ce possible ?
+Quels sont les trajets les plus rapides pour aller de {station1} à {station2} ?
+De {station1}, est-il possible de rejoindre {station2} avec un changement à Paris ?
+Est-ce que les horaires pour le trajet {station1}-{station2} ont changé récemment ?
+Je vais voyager avec des bagages lourds entre {station1} et {station2}, comment faire ?
+Quels trains relient {station1} et {station2} avec un départ avant 8h ?
+Le trajet entre {station1} et {station2} est-il affecté par des grèves ?
+Quels sont les arrêts principaux sur la ligne reliant {station1} à {station2} ?
+De {station1}, à quelle heure part le premier train pour {station2} ?
+Puis-je obtenir un tarif réduit pour le trajet entre {station1} et {station2} ?
+Quels trains circulent entre {station1} et {station2} pendant les jours fériés ?
+Y a-t-il un train qui passe par {station1} et arrive à {station2} avant 10h ?
+Quels arrêts sont prévus entre {station1} et {station2} cet après-midi ?
+Est-ce que le train entre {station1} et {station2} est opérationnel aujourd’hui ?
+Je souhaite voyager avec un animal domestique entre {station1} et {station2}, est-ce autorisé ?
+Quels trains relient directement {station1} et {station2} sans correspondance ?
+Le train qui passe par {station1} s’arrête-t-il aussi à {station2} ?
+Est-ce que les billets entre {station1} et {station2} sont disponibles en ligne ?
+Quels sont les arrêts obligatoires entre {station1} et {station2} en soirée ?
+Le dernier train partant de {station1} pour {station2} est-il retardé ?
+Combien coûte un billet pour voyager entre {station1} et {station2} ?
+Est-ce que le train express dessert {station1} et continue vers {station2} ?
+Puis-je réserver un siège en première classe entre {station1} et {station2} ?
+Quels sont les trains de nuit entre {station1} et {station2} ?
+Le trajet entre {station1} et {station2} inclut-il des arrêts imprévus ?
+Quels services sont disponibles sur la ligne reliant {station1} à {station2} ?
+Est-ce que les trains passent souvent entre {station1} et {station2} ?
+À partir de {station1}, puis-je atteindre {station2} avec un arrêt à Lyon ?
+Je dois aller de {station1} à {station2} en passant par une autre grande gare.
+Quels horaires nocturnes sont disponibles entre {station1} et {station2} ?
+Est-ce que je peux faire une pause à {station1} avant de continuer vers {station2} ?
+De {station1}, quel train me permet d'arriver le plus vite à {station2} ?
+Le train qui part de {station1} pour {station2} s'arrête-t-il à Bordeaux ?
+Est-il possible de faire une correspondance entre {station1} et {station2} ?
+Combien coûte un billet pour aller de {station1} à {station2} en première classe ?
+Le trajet entre {station1} et {station2} inclut-il des arrêts obligatoires ?
+Quels sont les horaires du dernier train reliant {station1} et {station2} ?
+De {station1}, comment rejoindre {station2} en utilisant un train express ?
+Est-ce que les trains entre {station1} et {station2} ont des retards aujourd’hui ?
+Si je pars de {station1}, combien d'heures pour arriver à {station2} ?
+Quels services à bord sont disponibles pour le trajet entre {station1} et {station2} ?
+Le train rapide de {station1} à {station2} propose-t-il des sièges confort ?
+Puis-je transporter un vélo sur la ligne reliant {station1} et {station2} ?
+Quels trains relient directement {station1} et {station2} sans correspondance ?
+Entre {station1} et {station2}, combien de trains circulent le matin ?
+Quels itinéraires sont disponibles entre {station1} et {station2} pendant les grèves ?
+Y a-t-il des arrêts intermédiaires sur le trajet entre {station1} et {station2} ?
+Quels sont les trains les plus économiques entre {station1} et {station2} ?
+Est-il possible de voyager entre {station1} et {station2} sans billet ?
+Puis-je réserver une place prioritaire sur le train reliant {station1} et {station2} ?
+Quels services premium sont disponibles pour un voyage entre {station1} et {station2} ?
+Le train qui dessert {station1} continue-t-il vers {station2} le soir ?
+Quels sont les horaires de départ pour le trajet entre {station1} et {station2} ?
+Puis-je descendre à {station1} et reprendre un train pour {station2} plus tard ?
+Quels sont les arrêts obligatoires pour les trains reliant {station1} à {station2} ?
+Le trajet entre {station1} et {station2} inclut-il un arrêt à Marseille ?
+Y a-t-il des correspondances faciles entre {station1} et {station2} ?
+Est-ce que le train qui passe par {station1} dessert aussi {station2} ?
+Quels sont les trajets disponibles entre {station1} et {station2} en soirée ?
+Quels trains relient {station1} et {station2} en moins de trois heures ?
+Est-ce que le service Wi-Fi est disponible sur les trains entre {station1} et {station2} ?
+Le train express de {station1} à {station2} passe-t-il par une autre grande gare ?
+Quels horaires sont disponibles pour les trains partant de {station1} vers {station2} ?
+Puis-je voyager avec un animal domestique entre {station1} et {station2} ?
+Quels arrêts sont inclus sur le trajet entre {station1} et {station2} cet après-midi ?
+Est-ce que le train direct entre {station1} et {station2} fonctionne aujourd’hui ?
+Le trajet entre {station1} et {station2} est-il affecté par des travaux en cours ?
+Quels trains de nuit relient {station1} et {station2} cette semaine ?
+Y a-t-il une correspondance à prévoir entre {station1} et {station2} le matin ?
+Puis-je acheter un billet aller-retour pour un voyage entre {station1} et {station2} ?
+Quels sont les services disponibles sur le train reliant {station1} et {station2} ?
+Quels itinéraires alternatifs sont recommandés entre {station1} et {station2} ?
+Quels arrêts supplémentaires sont inclus sur le trajet {station1}-{station2} ?
+Quels trains rapides partent de {station1} pour rejoindre {station2} le matin ?
+Le train de {station1} à {station2} inclut-il des correspondances à Paris ?
+Quels sont les horaires des trains partant de {station1} vers {station2} ?
+Y a-t-il des réductions pour les seniors voyageant entre {station1} et {station2} ?
+Quels services sont offerts aux voyageurs entre {station1} et {station2} ?
+Puis-je voyager avec des bagages volumineux entre {station1} et {station2} ?
+Quels sont les trajets les plus rapides pour aller de {station1} à {station2} ?
+Le train express de {station1} à {station2} dessert-il des gares secondaires ?
+Quels horaires nocturnes sont proposés pour les trajets entre {station1} et {station2} ?
+Puis-je réserver une cabine privée pour un trajet entre {station1} et {station2} ?
+Quels arrêts principaux sont inclus dans le trajet {station1}-{station2} aujourd’hui ?
+Quels trains directs relient {station1} à {station2} en soirée ?
+Combien coûte un billet pour voyager entre {station1} et {station2} sans correspondance ?
+Quels sont les trajets disponibles entre {station1} et {station2} pendant les jours fériés ?
+Le train entre {station1} et {station2} propose-t-il un service de restauration ?
+Est-il possible de faire une correspondance rapide entre {station1} et {station2} ?
+Quels trains circulent entre {station1} et {station2} en dehors des heures de pointe ?
+Quels sont les horaires des trains reliant {station1} et {station2} le week-end ?
+Puis-je voyager avec un billet flexible entre {station1} et {station2} ?
+Quels sont les arrêts obligatoires entre {station1} et {station2} ce soir ?
+Est-ce que le trajet entre {station1} et {station2} est accessible aux PMR ?
+Puis-je obtenir un tarif réduit pour un aller simple entre {station1} et {station2} ?
+Quels trains directs relient {station1} à {station2} sans arrêts supplémentaires ?
+Le trajet entre {station1} et {station2} est-il affecté par des retards aujourd’hui ?
+Quels itinéraires alternatifs existent pour aller de {station1} à {station2} rapidement ?
+Je voudrais savoir s’il existe un train qui part de {station1}, fait un arrêt à Lyon, et continue ensuite vers {station2} en moins de trois heures.
+Pouvez-vous me donner les horaires des trains de nuit entre {station1} et {station2}, et indiquer s’ils ont des services à bord comme des cabines de repos ?
+Entre {station1} et {station2}, quels sont les arrêts intermédiaires les plus communs, et combien de temps s’y arrête-t-on en général ?
+Si je pars de {station1} demain matin, à quelle heure pourrais-je arriver à {station2} si je prends un train express avec une correspondance à Paris ?
+Est-ce qu’il est possible de voyager avec un vélo non pliable entre {station1} et {station2}, et si oui, quels sont les frais associés pour le transport ?
+Je veux réserver un trajet entre {station1} et {station2} avec un arrêt obligatoire à Marseille, pourriez-vous me confirmer si cela est possible sur un train direct ?
+Quels sont les tarifs étudiants pour un aller simple entre {station1} et {station2}, et dois-je fournir une carte spécifique pour bénéficier de cette réduction ?
+Est-il vrai que le trajet entre {station1} et {station2} est souvent sujet à des retards dus à des travaux, et si oui, quels itinéraires alternatifs recommandez-vous ?
+Je dois partir de {station1}, arriver à {station2} avant 18h, et faire un arrêt rapide à Lyon, pouvez-vous m’aider à trouver un train adapté ?
+Est-ce que les trains qui relient {station1} et {station2} offrent un service de restauration ou des collations disponibles à bord ?
+Pouvez-vous m’indiquer les horaires des trains directs qui passent par {station1} et {station2} après 22h, et s’il y a des options plus rapides disponibles ?
+Je voyage en famille entre {station1} et {station2}, est-ce que je peux réserver des places assises côte à côte, et y a-t-il des services spéciaux pour les enfants ?
+Pour un trajet entre {station1} et {station2}, est-il possible de réserver un siège en première classe avec un billet flexible pour le retour le lendemain ?
+Je souhaite partir de {station1} en direction de {station2}, mais je dois faire une correspondance rapide à Dijon, quels sont les trains les plus adaptés ?
+Est-ce que je peux réserver un billet en ligne pour un trajet entre {station1} et {station2}, et quels sont les modes de paiement acceptés sur le site ?
+Le train express qui passe par {station1} et continue vers {station2} s’arrête-t-il également à Bordeaux, et combien de temps y reste-t-il ?
+Pour voyager entre {station1} et {station2}, quels sont les services disponibles à bord, comme le Wi-Fi ou les prises électriques pour recharger mes appareils ?
+Quels trains sont disponibles entre {station1} et {station2} pendant les jours fériés, et est-ce que les horaires changent en fonction des fêtes nationales ?
+Je veux prendre un train de {station1} pour arriver à {station2}, mais j’aimerais éviter les gares très fréquentées comme Paris, est-ce possible ?
+Quels sont les arrêts principaux pour les trains reliant {station1} et {station2}, et combien de correspondances sont nécessaires si je pars le matin ?
+Est-il possible de voyager en groupe de 10 personnes entre {station1} et {station2}, et existe-t-il des réductions spéciales pour les groupes ?
+Pouvez-vous confirmer si le dernier train de {station1} vers {station2} est toujours disponible à 23h, ou si les horaires ont récemment été modifiés ?
+Pour un trajet entre {station1} et {station2}, quels sont les trains qui proposent des cabines privées, et comment les réserver à l’avance ?
+Je souhaite partir de {station1} pour arriver à {station2} en empruntant un train rapide qui ne s’arrête pas trop longtemps dans les gares intermédiaires.
+Est-il vrai que les billets pour les trajets entre {station1} et {station2} sont moins chers en semaine que le week-end, et si oui, à combien s’élève la différence ?
+Je vais prendre un train entre {station1} et {station2}, mais je veux absolument voyager avec mon chien, quelles sont les règles concernant les animaux de compagnie ?
+Quels sont les trains qui relient {station1} et {station2} en moins de deux heures, et proposent-ils un tarif spécial pour les personnes âgées ?
+Est-il possible de réserver un aller-retour entre {station1} et {station2}, avec un retour prévu la semaine prochaine, et combien coûteraient les billets ?
+Quels sont les trajets alternatifs si je ne veux pas prendre un train direct entre {station1} et {station2}, mais souhaite explorer une autre ville en chemin ?
+Pouvez-vous me confirmer si le train express reliant {station1} et {station2} passe par une gare internationale, et combien de temps il y reste ?
+Quels horaires nocturnes sont disponibles pour les trains qui passent par {station1} en direction de {station2}, et est-ce qu’ils sont souvent complets ?
+Je pars de {station1} pour {station2} avec un arrêt à Lyon, et j’aimerais savoir combien de temps dure la correspondance avant de continuer le trajet.
+Est-ce que je peux acheter un billet pour un train entre {station1} et {station2} directement dans le train si je n’ai pas eu le temps de le réserver en avance ?
+Quels sont les services à bord des trains qui circulent entre {station1} et {station2}, comme des espaces pour les bagages volumineux ou les vélos ?
+Pour un trajet entre {station1} et {station2}, est-ce que les trains disposent de prises pour recharger les appareils électroniques à chaque siège ?
+Quels trains directs relient {station1} à {station2} pendant les heures de pointe, et sont-ils souvent sujets à des retards ?
+Est-ce que les trajets entre {station1} et {station2} incluent toujours des arrêts à Paris, ou est-il possible d’éviter cette gare pour un trajet plus rapide ?
+Je voudrais réserver un train entre {station1} et {station2} pour voyager avec une poussette et un enfant en bas âge, quels sont les services adaptés à ma situation ?
+Est-ce que les trains qui relient {station1} et {station2} en soirée proposent des sièges inclinables pour plus de confort pendant le trajet ?
+Quels sont les trains les plus économiques pour aller de {station1} à {station2}, et est-il possible d’avoir une réduction pour une réservation en avance ?
+Je souhaite voyager de {station1} à {station2} avec un arrêt à Dijon et une arrivée avant 18h, pourriez-vous m’indiquer le meilleur itinéraire pour cela ?
+Pour un train qui part de {station1} et va jusqu’à {station2}, combien de temps faut-il pour un arrêt à Lyon avant de continuer le trajet ?
+Quels trains de nuit circulent entre {station1} et {station2} pendant les vacances scolaires, et proposent-ils des tarifs réduits pour les enfants ?
+Je veux voyager de {station1} à {station2} avec plusieurs bagages lourds, est-il possible de les transporter dans le même wagon où je suis assis ?
+Je voudrais voyager de {station1} à {station2}, mais j’aimerais savoir si je dois réserver mon billet à l’avance, surtout si je veux partir un vendredi soir.
+Pour un trajet entre {station1} et {station2}, est-il possible de choisir une place près d’une fenêtre, et combien cela coûterait-il de réserver à l’avance ?
+Je prévois de voyager avec mon chien de {station1} à {station2}, pouvez-vous m’indiquer si les animaux de compagnie sont autorisés et quelles sont les règles à suivre ?
+Si je prends un train à {station1} pour aller à {station2}, est-il obligatoire de faire une correspondance à une autre gare, ou y a-t-il un train direct disponible ?
+Je suis à la recherche du trajet le plus rapide entre {station1} et {station2}, mais je voudrais aussi éviter les gares très fréquentées comme Paris ou Lyon, que me conseillez-vous ?
+Est-il possible d’emprunter un train de nuit entre {station1} et {station2}, et ces trains offrent-ils des cabines privées ou d’autres options pour dormir confortablement ?
+Quels sont les services disponibles sur les trains express reliant {station1} et {station2}, comme le Wi-Fi, les prises électriques, ou un espace pour transporter un vélo ?
+Je dois partir de {station1} tôt le matin pour arriver à {station2} avant midi, pourriez-vous m’indiquer quels sont les horaires disponibles et si une réservation est nécessaire ?
+Pour un groupe de 8 personnes voyageant entre {station1} et {station2}, existe-t-il des réductions spécifiques, et pouvons-nous réserver des places côte à côte pour tout le groupe ?
+Je veux voyager de {station1} à {station2} avec un arrêt à Dijon pour visiter la ville quelques heures, quels sont les trains qui permettent une telle flexibilité dans l’itinéraire ?
+Pouvez-vous me confirmer si le train qui part de {station1} pour {station2} fait un arrêt à Lyon, et si oui, combien de temps dure cet arrêt en général ?
+Pour un billet aller-retour entre {station1} et {station2}, est-il possible de réserver un siège en première classe pour l’aller et en deuxième classe pour le retour ?
+Est-ce que les trains reliant {station1} et {station2} sont accessibles pour les personnes à mobilité réduite, et y a-t-il des services d’assistance disponibles à la gare ?
+Je souhaite réserver un billet pour voyager de {station1} à {station2}, mais je veux aussi inclure une correspondance à Marseille dans l’itinéraire, est-ce faisable ?
+Quels sont les trajets disponibles entre {station1} et {station2} si je veux partir aujourd’hui même, et est-ce que les billets peuvent être achetés directement dans le train ?
+Le train qui part de {station1} pour aller à {station2} s’arrête-t-il dans d’autres grandes gares comme Bordeaux ou Toulouse, et si oui, combien de temps y reste-t-il ?
+Je veux voyager de {station1} à {station2} en fin de soirée, est-ce que les trains circulent encore après 22h, et quels sont les horaires pour le dernier départ ?
+Quels sont les avantages de prendre un train express entre {station1} et {station2}, et ces trains proposent-ils des réductions pour les étudiants ou les seniors ?
+Pour un trajet entre {station1} et {station2}, y a-t-il des cabines ou des compartiments privés disponibles à la réservation, et combien cela coûterait-il pour deux personnes ?
+Est-ce que je peux transporter des bagages volumineux, comme une valise de 30 kg, entre {station1} et {station2}, et dois-je payer un supplément pour ce type de bagage ?
+Quels sont les arrêts principaux sur le trajet entre {station1} et {station2}, et combien de temps faut-il pour effectuer ce trajet en prenant un train rapide ?
+Pour un voyage entre {station1} et {station2}, puis-je acheter un billet en ligne et le retirer à la gare avant de monter dans le train, ou est-ce uniquement numérique ?
+Est-ce que le train qui dessert {station1} et continue vers {station2} propose des sièges inclinables pour les trajets de nuit, et comment puis-je les réserver ?
+Je dois partir de {station1} avec ma famille pour arriver à {station2}, y a-t-il des réductions pour les enfants, et est-ce que nous pouvons être assis ensemble pendant le trajet ?
+Quels sont les trains qui partent de {station1} et arrivent à {station2} avec un seul arrêt intermédiaire, et est-ce que ces trains sont souvent à l’heure ?
+Je veux voyager de {station1} à {station2} en passant par une ville comme Strasbourg, combien de temps faut-il pour une correspondance à Strasbourg avant de continuer ?
+Pour un train entre {station1} et {station2}, est-ce que les horaires changent les jours fériés, et comment puis-je m’assurer que mon train n’est pas annulé ?
+Pouvez-vous m’indiquer les services à bord disponibles pour les trains circulant entre {station1} et {station2}, comme la restauration ou les espaces pour les vélos ?
+Je voyage entre {station1} et {station2} avec un arrêt obligatoire à Marseille, pourriez-vous m’indiquer les options pour prolonger cet arrêt de quelques heures ?
+Quels sont les meilleurs itinéraires pour aller de {station1} à {station2} tout en incluant un arrêt pour visiter Lyon, et combien de temps dure le trajet total ?
+Je pars de {station1} pour rejoindre {station2}, mais j’aimerais réserver un billet flexible qui me permette de modifier mon horaire en cas d’imprévu, est-ce possible ?
+Quels sont les trajets disponibles entre {station1} et {station2} si je dois voyager avec un vélo électrique, et y a-t-il des restrictions sur ce type de transport ?
+Je veux partir de {station1} et arriver à {station2} avant 19h, mais j’aimerais éviter les trains qui font trop d’arrêts intermédiaires, que me recommandez-vous ?
+Pour un billet entre {station1} et {station2}, est-il possible de choisir une place près de l’entrée du wagon pour faciliter l’accès avec mes bagages lourds ?
+Je dois voyager avec un animal domestique entre {station1} et {station2}, pourriez-vous m’expliquer les règles en vigueur et les documents nécessaires pour ce type de trajet ?
+Quels sont les arrêts obligatoires pour les trains reliant {station1} et {station2} pendant la soirée, et combien de temps s’arrête-t-on dans ces gares intermédiaires ?
+Pouvez-vous m’aider à planifier un voyage entre {station1} et {station2} en incluant un arrêt à Lyon pour déjeuner, et un retour prévu le même jour ?
+Est-il possible de réserver des sièges prioritaires pour les personnes âgées sur les trains circulant entre {station1} et {station2}, et si oui, comment procéder ?
+Le train express reliant {station1} à {station2} dessert-il également les petites gares intermédiaires, ou est-il strictement limité aux grandes villes ?
+Je souhaite voyager de {station1} à {station2} en fin de semaine, est-ce que les horaires changent entre le vendredi soir et le dimanche matin pour ces trajets ?
+Pour un trajet entre {station1} et {station2}, puis-je obtenir une réduction en réservant un aller-retour, et y a-t-il des frais pour modifier les horaires du retour ?
+Je veux prendre un train de nuit entre {station1} et {station2}, quels sont les services disponibles pour les longs trajets comme des cabines de repos ou des sièges inclinables ?
