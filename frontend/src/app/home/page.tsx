@@ -3,7 +3,7 @@
 import ResultCard from "../(components)/resultcard";
 import Map from "../(components)/map";
 import HistoriqueCard from "../(components)/historiquecard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useChatBar from "../(components)/chatbar";
 import { useHistoriqueContext } from "../context/historiqueContext";
 
@@ -12,18 +12,6 @@ export default function Home() {
 
   const [isHistoriqueVisible, setIsHistoriqueVisible] = useState(false);
   const [isResultCardVisible, setIsResultCardVisible] = useState(false);
-
-  // Function to open the result card
-  const openResultCard = () => {
-    setIsHistoriqueVisible(false);
-    setIsResultCardVisible(true);
-  };
-
-  const { chatbar, prompt } = useChatBar({
-    onClick: () => newHistorique(prompt),
-    openResultCard,
-    
-  });
 
   const toggleDisplay = (type) => {
     if (type === "historique") {
@@ -39,6 +27,13 @@ export default function Home() {
     setIsHistoriqueVisible(false);
     setIsResultCardVisible(false);
   };
+
+  const { chatbar, prompt } = useChatBar({
+    onClick: () => newHistorique(prompt),
+    openResultCard: () => toggleDisplay("resultCard"),
+    isResultCardVisible,
+    closeDisplay: () => closeDisplay(),
+  });
 
   const toggleButton = () => {
     if (isHistoriqueVisible || isResultCardVisible) {
