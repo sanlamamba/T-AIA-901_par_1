@@ -142,6 +142,7 @@ data/dataset/*
 !data/dataset/brute_sentences.csv
 !data/dataset/brute_sentences_2.csv
 !data/dataset/cities.csv
+!data/dataset/test/
 
 # Model processed
 **/processed/**/*.pth
