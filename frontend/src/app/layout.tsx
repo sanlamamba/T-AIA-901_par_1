@@ -1,18 +1,28 @@
-import './globals.css'
+// 'use client'
+
+import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
-  title: 'MapGpt',
-  description: 'Un ChatGpt pour trouver ton itinéraire !',
-}
+  title: "Travelgio",
+  description: "Un ChatGpt pour trouver ton itinéraire !",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <ToastContainer />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }

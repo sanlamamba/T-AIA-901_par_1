@@ -16,5 +16,13 @@ html, body, #__next {
   }
 
   .svgClassChatbar{
-    width: 20px;
+    width: 18px;
+  }
+
+  .svgClassLogin{
+    width: 30px;
+  }
+
+  .svgClassHome{
+    width: 15px;
   }
