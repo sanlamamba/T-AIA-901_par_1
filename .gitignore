@@ -148,3 +148,6 @@ data/dataset/*
 
 # AI Model
 !model/**/models/
+
+# Ignore all html files
+*.html

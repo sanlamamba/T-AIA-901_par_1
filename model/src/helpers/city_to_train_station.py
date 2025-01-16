@@ -86,7 +86,7 @@ class CityToTrainHelper:
         if entity.empty:
             return None
 
-        response = entity.groupby("label").value_counts().sort_values(ascending=False).idxmax()
+        response = entity.groupby("nearest_train_station").value_counts().sort_values(ascending=False).idxmax()
         return response[6]
 
     @classmethod
@@ -98,7 +98,7 @@ class CityToTrainHelper:
         if entity.empty:
             return cls.__get_department(name) 
 
-        response = entity.groupby("label").value_counts().sort_values(ascending=False).idxmax()
+        response = entity.groupby("nearest_train_station").value_counts().sort_values(ascending=False).idxmax()
         return response[6]
 
     @classmethod
