@@ -93,4 +93,4 @@ with tqdm(total=len(csv)) as pbar:
         pbar.update(1)
 
 df = pd.DataFrame(results)
-df.to_csv(f"../../processed/test_results/{dataset_name}_results.csv", index=False)
+df.to_csv(f"../../processed/test_results/city_nlp/{dataset_name}_results.csv", index=False)
