@@ -7,7 +7,6 @@ class CityToTrainHelper:
     # train_station_df = pd.read_csv('../data/liste-des-gares.csv', sep=';')
     # cities_df = pd.read_csv('../data/cities.csv')
     # all_names_df = pd.read_csv('../data/cities_and_train_stations.csv')
-    train_station_df = pd.read_csv('../../../data/liste-des-gares.csv', sep=';')
     cities_df = pd.read_csv('../../../data/cities.csv')
     all_names_df = pd.read_csv('../../../data/cities_and_train_stations.csv')
 
@@ -25,25 +24,26 @@ class CityToTrainHelper:
         distance = c * r
         return distance
 
-    @classmethod
-    def calculate_nearest_station(cls, city_name):
-        city = cls.cities_df.loc[cls.cities_df["label"] == city_name]
+    # @classmethod
+    # def calculate_nearest_station(cls, city_name):
+    #     train_station_df = pd.read_csv('../../../data/liste-des-gares.csv', sep=';')
+    #     city = cls.cities_df.loc[cls.cities_df["label"] == city_name]
 
-        if city.empty:
-            print("City not found")
-            return 
+    #     if city.empty:
+    #         print("City not found")
+    #         return 
 
-        coord_1 = (city["latitude"].values[0], city["longitude"].values[0])
+    #     coord_1 = (city["latitude"].values[0], city["longitude"].values[0])
 
-        cls.train_station_df[['lat', 'lon']] = cls.train_station_df['C_GEO'].str.split(',', expand=True).astype(float)
+    #     cls.train_station_df[['lat', 'lon']] = cls.train_station_df['C_GEO'].str.split(',', expand=True).astype(float)
 
-        cls.train_station_df['distance'] = cls.__haversine_vectorized(
-            coord_1[0], coord_1[1],
-            cls.train_station_df['lat'].values, cls.train_station_df['lon'].values
-        )
+    #     cls.train_station_df['distance'] = cls.__haversine_vectorized(
+    #         coord_1[0], coord_1[1],
+    #         cls.train_station_df['lat'].values, cls.train_station_df['lon'].values
+    #     )
 
-        distance_df = cls.train_station_df[['distance', 'LIBELLE']].copy()
-        return distance_df.loc[distance_df["distance"].min() == distance_df["distance"]]
+    #     distance_df = cls.train_station_df[['distance', 'LIBELLE']].copy()
+    #     return distance_df.loc[distance_df["distance"].min() == distance_df["distance"]]
 
     @classmethod
     def fuzzy_search(cls, name):

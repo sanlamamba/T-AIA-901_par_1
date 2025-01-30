@@ -12,16 +12,7 @@ print("============================================================")
 
 visualizer = Visualizer()
 
-# sentence = "Je veux passer par Bucy le Long. Je veux aller à Abergement le Petit depuis Viodos Abense de Bas en passant par Marseille, mais je veux éviter Chauny. Je voudrais aussi passer par Bourguignon sous Coucy."
-
-city_1 = "Bucy le Long"
-city_2 = "Abergement le Petit"
-city_3 = "Viodos Abense de Bas"
-city_4 = "Marseille"
-city_5 = "Chauny"
-city_6 = "île-de-France"
-
-sentence = f"Je souhaite aller de l'{city_6} à {city_4}."
+sentence = "Je souhaite aller de Paris à Marseille en passant par Lyon."
 
 inferences = visualizer.pipeline(sentence)
 
