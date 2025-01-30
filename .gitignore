@@ -149,6 +149,8 @@ data/dataset/*
 
 # AI Model
 !model/**/models/
+spacy_model/model/
+spacy_model/output/
 
 # Ignore all html files
 *.html
