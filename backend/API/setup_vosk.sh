@@ -58,7 +58,7 @@ try_install_command() {
     if [[ "$OSTYPE" == "linux-gnu"* || "$OSTYPE" == "linux"* ]]; then
         if command_exists apt-get; then
             log_info "'$cmd_name' not found. Installing via apt-get..."
-            sudo apt-get update && sudo apt-get install -y "$cmd_name"
+            sudo apt-get update && sudo apt-get install -y "$cmd_name" && sudo apt-get install ffmpeg
         else
             log_error "Could not install '$cmd_name': 'apt-get' is not available on this system."
             exit 1
@@ -67,6 +67,7 @@ try_install_command() {
         if command_exists brew; then
             log_info "'$cmd_name' not found. Installing via Homebrew..."
             brew install "$cmd_name"
+            brew install ffmpeg
         else
             log_error "Could not install '$cmd_name': Homebrew is not installed."
             exit 1
