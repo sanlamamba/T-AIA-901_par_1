@@ -142,12 +142,15 @@ data/dataset/*
 !data/dataset/brute_sentences.csv
 !data/dataset/brute_sentences_2.csv
 !data/dataset/cities.csv
+!data/dataset/test/brute_sentences*
 
 # Model processed
 **/processed/**/*.pth
 
 # AI Model
 !model/**/models/
+spacy_model/model/
+spacy_model/output/
 
 # Ignore all html files
 *.html

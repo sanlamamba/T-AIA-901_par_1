@@ -1,0 +1,19 @@
+model name,data,accuracy,tested feature
+city_nlp,city,0.42,direct routing
+city_nlp,train_station,0.44,direct routing
+city_nlp,city,0.55,multi stop
+city_nlp,train_station,0.5,multi stop
+city_nlp,city,0.33,exclusion routing
+city_nlp,train_station,0.3,exclusion routing
+4000_classes_classification,city,0.0,direct routing
+4000_classes_classification,train_station,0.21,direct routing
+4000_classes_classification,city,0.0,multi stop
+4000_classes_classification,train_station,0.0,multi stop
+4000_classes_classification,city,0.0,exclusion routing
+4000_classes_classification,train_station,0.0,exclusion routing
+spacy,city,0.0,direct routing
+spacy,train_station,0.0,direct routing
+spacy,city,0.0,multi stop
+spacy,train_station,0.0,multi stop
+spacy,city,0.0,exclusion routing
+spacy,train_station,0.0,exclusion routing
