@@ -7,8 +7,8 @@ class CityToTrainHelper:
     # train_station_df = pd.read_csv('../data/liste-des-gares.csv', sep=';')
     # cities_df = pd.read_csv('../data/cities.csv')
     # all_names_df = pd.read_csv('../data/cities_and_train_stations.csv')
-    cities_df = pd.read_csv('../../../data/cities.csv')
-    all_names_df = pd.read_csv('../../../data/cities_and_train_stations.csv')
+    cities_df = pd.read_csv('./data/cities.csv')
+    all_names_df = pd.read_csv('./data/cities_and_train_stations.csv')
 
     def __haversine_vectorized(lat1, lon1, lat2, lon2):
         lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])

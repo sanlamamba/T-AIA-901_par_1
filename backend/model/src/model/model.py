@@ -35,7 +35,7 @@ class BertForSequenceClassification(nn.Module):
         if path:
             model_path = os.path.join(path, f"{file_name}")
         else:
-            model_path = os.path.join(os.getcwd(), f"../../processed/{model_name}/{file_name}")
+            model_path = os.path.join(os.getcwd(), f"./model/processed/{model_name}/{file_name}")
         self.load_state_dict(torch.load(
             model_path, 
             weights_only=True, 
