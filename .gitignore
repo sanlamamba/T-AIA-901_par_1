@@ -148,7 +148,7 @@ data/dataset/*
 **/processed/**/*.pth
 
 # AI Model
-!model/**/models/
+!model/**/models/vosk*
 spacy_model/model/
 spacy_model/output/
 
