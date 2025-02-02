@@ -15,12 +15,17 @@ general_processes_ns = Namespace(
 ner_model = ner_ns.model(
     "TextInput", {"text": fields.String(required=True, description="Text input")}
 )
-
 path_model = path_ns.model(
     "PathInput",
     {
         "start": fields.String(required=True, description="Start station code"),
         "end": fields.String(required=True, description="End station code"),
+        "intermediates": fields.List(
+            fields.String,
+            required=False,
+            description="Intermediate station codes",
+            default=[],
+        ),
         "algorithm": fields.String(
             required=False,
             description="Algorithm to use",
@@ -43,7 +48,6 @@ general_process_model = general_processes_ns.model(
     {"text": fields.String(required=True, description="Text input to process")},
 )
 
-# Allowed file extensions for STT
 ALLOWED_EXTENSIONS = {"wav", "mp3", "ogg", "flac"}
 
 
@@ -52,7 +56,6 @@ def allowed_file(filename):
 
 
 def register_routes(api):
-    # Add Namespaces to API
     api.add_namespace(stt_ns)
     api.add_namespace(ner_ns)
     api.add_namespace(path_ns)
@@ -115,6 +118,7 @@ def register_routes(api):
             """Find the optimal path using the specified algorithm."""
             data = request.json
             start_name = data.get("start")
+            intermediates = data.get("intermediates", [])
             end_name = data.get("end")
             algorithm = data.get("algorithm", "AStar")
 
@@ -122,7 +126,9 @@ def register_routes(api):
                 abort(400, "Start and end station names are required")
 
             try:
-                result = pathfinding_service.find_path(start_name, end_name, algorithm)
+                result = pathfinding_service.find_path(
+                    start_name, end_name, intermediates, algorithm
+                )
                 if "error" in result:
                     abort(400, result["error"])
                 return result, 200
@@ -140,7 +146,6 @@ def register_routes(api):
             """Process text input to find optimal path"""
             data = request.json
             text = data.get("text")
-
             if not text:
                 abort(400, "No text provided")
 
@@ -162,11 +167,15 @@ def register_routes(api):
 
             if not start_name or not end_name:
                 abort(400, "Unable to extract start and end stations from text")
-
+            if not intermed_stations:
+                intermed_stations = None
             algorithm = "AStar"
 
             try:
-                result = pathfinding_service.find_path(start_name, end_name, algorithm)
+                result = pathfinding_service.find_path(
+                    start_name, end_name, intermed_stations, algorithm
+                )
+                print("Pathfinding result:", result)
                 result["algorithm"] = algorithm
                 if "error" in result:
                     abort(400, result["error"])
