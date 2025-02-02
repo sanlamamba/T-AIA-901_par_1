@@ -175,7 +175,6 @@ def register_routes(api):
                 result = pathfinding_service.find_path(
                     start_name, end_name, intermed_stations, algorithm
                 )
-                print("Pathfinding result:", result)
                 result["algorithm"] = algorithm
                 if "error" in result:
                     abort(400, result["error"])
