@@ -1,42 +1,51 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-} from "react";
-import { useAuth } from "@clerk/nextjs";
 import {
-  getHistoriquesByUserId,
   createHistorique,
+  getHistoriquesByUserId,
   Historique,
 } from "@/actions/historiqueActions";
+import { IEtape } from "@/types/IHistorique";
+import { useAuth } from "@clerk/nextjs";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 import { processPathfinding } from "./requestsUtils";
 
-const HistoriqueContext = createContext({
-  userId: null,
-  selectedHistorique: {},
-  historiques: [],
-  fetchHistorique: () => {},
-  newHistorique: () => {},
-  setSelectedHistorique: () => {},
-  resetSelectedHistorique: () => {}, 
-});
+interface IHistoriqueContext {
+  userId: string | null | undefined;
+  selectedHistorique?: Historique;
+  historiques: Historique[];
+  fetchHistorique: () => Promise<void>;
+  newHistorique: (prompt: string) => Promise<void>;
+  setSelectedHistorique: (historique: Historique) => void;
+  resetSelectedHistorique: () => void;
+  mapUrl?: string;
+  prompt?: string;
+}
+
+const HistoriqueContext = createContext<IHistoriqueContext | null | undefined >(undefined);
 
 export const useHistoriqueContext = () => useContext(HistoriqueContext);
 
-export const HistoriqueContextProvider = ({ children }) => {
+interface HistoriqueProviderProps {
+  children: ReactNode;
+}
+export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {children}) => {
   const { userId } = useAuth();
-  const [selectedHistorique, setSelectedHistorique] = useState({});
-  const [historiques, setHistoriques] = useState([]);
+  const [selectedHistorique, setSelectedHistorique] = useState<Historique>();
+  const [historiques, setHistoriques] = useState<Historique[]>([]);
 
   const fetchHistorique = useCallback(async () => {
     if (!userId) return;
 
     try {
-      const result = await getHistoriquesByUserId(userId);
+      const result: Historique[] | undefined = await getHistoriquesByUserId(userId);
       setHistoriques(result || []);
     } catch (error) {
       console.error("Erreur lors du chargement des historiques:", error);
@@ -44,7 +53,7 @@ export const HistoriqueContextProvider = ({ children }) => {
   }, [userId]);
 
   const newHistorique = useCallback(
-    async (prompt) => {
+    async (prompt: string) => {
       if (!userId) return;
 
       try {
@@ -54,7 +63,7 @@ export const HistoriqueContextProvider = ({ children }) => {
           userId,
           prompt,
           mapUrl: optimalPath.pathfinding_result.map_url,
-          etapes: optimalPath.pathfinding_result.path.map((etape, index) => ({
+          etapes: optimalPath.pathfinding_result.path.map((etape: IEtape, index: number) => ({
             ville: etape,
             duree: 10,
             label:
@@ -66,8 +75,14 @@ export const HistoriqueContextProvider = ({ children }) => {
           })),
         };
 
-        const resultHistorique = await createHistorique(historique);
-        setSelectedHistorique((prev) => ({ ...prev, ...resultHistorique }));
+        const resultHistorique: Historique | null | undefined = await createHistorique(historique);
+
+        if (!resultHistorique) {
+          console.error("Erreur lors de la création de l’historique");
+          throw new Error("Erreur lors de la création de l’historique");
+        }
+
+        setSelectedHistorique(resultHistorique);
 
         await fetchHistorique();
       } catch (error) {
@@ -78,7 +93,7 @@ export const HistoriqueContextProvider = ({ children }) => {
   );
 
   const resetSelectedHistorique = () => {
-    setSelectedHistorique({});
+    setSelectedHistorique(undefined);
   };
 
   useEffect(() => {

@@ -1,18 +1,23 @@
 "use client";
 
+import { randomUUID } from "crypto";
 import { useHistoriqueContext } from "../context/historiqueContext";
 
-export default function ResultCard({ close }) {
-  const { selectedHistorique, resetSelectedHistorique } =
+interface Props {
+  close: () => void;
+}
+export default function ResultCard({ close }: Props) {
+  const historicContext =
     useHistoriqueContext();
+  if (!historicContext) return null;
   const tempsTotal =
-    selectedHistorique?.etapes?.reduce(
+    historicContext.selectedHistorique?.etapes?.reduce(
       (total, etape) => total + etape.duree,
       0
     ) || 0;
   const closeCall = () => {
     close();
-    resetSelectedHistorique();
+    historicContext.resetSelectedHistorique();
   };
   return (
     <div className="bg-white h-min min-h-96 max-h-128 w-1/3 border-solid border-2 border-slate-100 rounded-lg shadow-lg overflow-auto relative">
@@ -21,7 +26,7 @@ export default function ResultCard({ close }) {
         <div>
           <h1 className="text-2xl font-semibold mb-0">Votre trajet</h1>
           <p className="text-xs text-slate-500">
-            Prompt : {selectedHistorique.prompt}
+            Prompt : {historicContext.selectedHistorique?.prompt}
           </p>
         </div>
         <svg
@@ -37,9 +42,9 @@ export default function ResultCard({ close }) {
       {/* Étapes */}
       <div className="h-full z-10 p-4">
         <ul className="list-none">
-          {selectedHistorique?.etapes &&
-            selectedHistorique.etapes.map((etape) => (
-              <li key={etape.id} className="w-full mb-3">
+          {historicContext.selectedHistorique?.etapes &&
+            historicContext.selectedHistorique.etapes.map((etape) => (
+              <li key={`${etape.ville} ${randomUUID.toString()} key`} className="w-full mb-3">
                 <div className="text-sm text-slate-500 mb-1">
                   {etape.label} :
                 </div>

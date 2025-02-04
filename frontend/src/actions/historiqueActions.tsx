@@ -1,7 +1,7 @@
 'use server'
 
-import { PrismaClient, Prisma } from '@prisma/client'
 import { currentUser } from '@clerk/nextjs/server'
+import { Prisma, PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 

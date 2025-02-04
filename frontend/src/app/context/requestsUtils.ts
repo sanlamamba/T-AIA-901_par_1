@@ -6,12 +6,12 @@ import axiosInstance from "./axiosInstance";
  * @param {string} text - Text to process.
  * @returns {object} - Response data.
  */
-export const processPathfinding = async (text) => {
+export const processPathfinding = async (text:string) => {
     try {
         const data = { text };
         const response = await axiosInstance.post("/general/process", data);
         return response.data;
-    } catch (err) {
+    } catch (err:any) {
         console.error("Error in processPathfinding:", err.response?.data || err.message);
         throw err;
     }
@@ -23,7 +23,7 @@ export const processPathfinding = async (text) => {
  * @param {File} audioFile - Audio file to process.
  * @returns {object} - Response data with transcript.
  */
-export const processAudio = async (audioFile) => {
+export const processAudio = async (audioFile:File) => {
     try {
         const formData = new FormData();
         formData.append("file", audioFile);
@@ -34,7 +34,7 @@ export const processAudio = async (audioFile) => {
             },
         });
         return response.data;
-    } catch (err) {
+    } catch (err:any) {
         console.error("Error in processAudio:", err.response?.data || err.message);
         throw err;
     }
