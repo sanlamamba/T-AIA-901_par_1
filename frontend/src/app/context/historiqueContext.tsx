@@ -26,6 +26,7 @@ interface IHistoriqueContext {
   setSelectedHistorique: (historique: Historique) => void;
   resetSelectedHistorique: () => void;
   mapUrl?: string;
+  setMapUrl?: (url: string) => void;
   prompt?: string;
 }
 
@@ -40,6 +41,7 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {c
   const { userId } = useAuth();
   const [selectedHistorique, setSelectedHistorique] = useState<Historique>();
   const [historiques, setHistoriques] = useState<Historique[]>([]);
+  const [mapUrl, setMapUrl] = useState<string>();
 
   const fetchHistorique = useCallback(async () => {
     if (!userId) return;
@@ -84,6 +86,7 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {c
 
         setSelectedHistorique(resultHistorique);
 
+        setMapUrl(resultHistorique.mapUrl);
         await fetchHistorique();
       } catch (error) {
         console.error("Erreur lors de la création de l’historique:", error);
@@ -110,6 +113,8 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {c
         newHistorique,
         setSelectedHistorique,
         resetSelectedHistorique,
+        mapUrl,
+        setMapUrl,
       }}
     >
       {children}

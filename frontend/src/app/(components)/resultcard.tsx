@@ -44,7 +44,7 @@ export default function ResultCard({ close }: Props) {
         <ul className="list-none">
           {historicContext.selectedHistorique?.etapes &&
             historicContext.selectedHistorique.etapes.map((etape) => (
-              <li key={`${etape.ville} ${randomUUID.toString()} key`} className="w-full mb-3">
+              <li key={`${etape.ville} ${randomUUID} key`} className="w-full mb-3">
                 <div className="text-sm text-slate-500 mb-1">
                   {etape.label} :
                 </div>
