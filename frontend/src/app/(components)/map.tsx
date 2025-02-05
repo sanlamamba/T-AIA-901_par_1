@@ -11,7 +11,7 @@ export default function Map() {
   useEffect(() => {
     console.log(selectedHistorique);
     if (!selectedHistorique) return;
-    !selectedHistorique.mapUrl 
+    !selectedHistorique.mapUrl
       ? setMapUrl("/assets/map.html")
       : setMapUrl(`${baseURL}${selectedHistorique.mapUrl}`);
     selectedHistorique.mapUrl = undefined;

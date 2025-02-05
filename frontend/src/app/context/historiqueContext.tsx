@@ -13,7 +13,7 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState
+  useState,
 } from "react";
 import { processPathfinding } from "./requestsUtils";
 
@@ -30,14 +30,18 @@ interface IHistoriqueContext {
   prompt?: string;
 }
 
-const HistoriqueContext = createContext<IHistoriqueContext | null | undefined >(undefined);
+const HistoriqueContext = createContext<IHistoriqueContext | null | undefined>(
+  undefined
+);
 
 export const useHistoriqueContext = () => useContext(HistoriqueContext);
 
 interface HistoriqueProviderProps {
   children: ReactNode;
 }
-export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {children}) => {
+export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ({
+  children,
+}) => {
   const { userId } = useAuth();
   const [selectedHistorique, setSelectedHistorique] = useState<Historique>();
   const [historiques, setHistoriques] = useState<Historique[]>([]);
@@ -47,7 +51,9 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {c
     if (!userId) return;
 
     try {
-      const result: Historique[] | undefined = await getHistoriquesByUserId(userId);
+      const result: Historique[] | undefined = await getHistoriquesByUserId(
+        userId
+      );
       setHistoriques(result || []);
     } catch (error) {
       console.error("Erreur lors du chargement des historiques:", error);
@@ -65,19 +71,23 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ( {c
           userId,
           prompt,
           mapUrl: optimalPath.pathfinding_result.map_url,
-          etapes: optimalPath.pathfinding_result.path.map((etape: IEtape, index: number) => ({
-            ville: etape,
-            duree: 10,
-            label:
-              index === 0
-                ? "From"
-                : index === optimalPath.pathfinding_result.path.length - 1
-                ? "Destination"
-                : "Step",
-          })),
+          distance: optimalPath.pathfinding_result.distance, //TODO Check this
+          etapes: optimalPath.pathfinding_result.path.map(
+            (etape: IEtape, index: number) => ({
+              ville: etape,
+              duree: parseInt(optimalPath.pathfinding_result.path_codes[index]),
+              label:
+                index === 0
+                  ? "From"
+                  : index === optimalPath.pathfinding_result.path.length - 1
+                  ? "Destination"
+                  : "Step",
+            })
+          ),
         };
 
-        const resultHistorique: Historique | null | undefined = await createHistorique(historique);
+        const resultHistorique: Historique | null | undefined =
+          await createHistorique(historique);
 
         if (!resultHistorique) {
           console.error("Erreur lors de la création de l’historique");
