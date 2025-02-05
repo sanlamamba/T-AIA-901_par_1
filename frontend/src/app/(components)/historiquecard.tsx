@@ -1,18 +1,26 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { Historique } from "@/actions/historiqueActions";
+import { AnimatePresence, motion } from "framer-motion";
 import { useHistoriqueContext } from "../context/historiqueContext";
 
+interface Props {
+  close: () => void;
+  isHistoriqueVisible: boolean;
+  setIsHistoriqueVisible: (value: boolean) => void;
+  setIsResultCardVisible: (value: boolean) => void;
+}
 export default function HistoriqueCard({
   close,
   isHistoriqueVisible,
   setIsHistoriqueVisible,
   setIsResultCardVisible,
-}) {
-  const { historiques, setSelectedHistorique } = useHistoriqueContext();
+}: Props) {
+  const contextHistoric = useHistoriqueContext();
+  if (!contextHistoric) return null;
 
-  const handleHistoriqueClick = (historique) => {
-    setSelectedHistorique(historique);
+  const handleHistoriqueClick = (historique: Historique) => {
+    contextHistoric.setSelectedHistorique(historique);
     setIsHistoriqueVisible(false);
     setIsResultCardVisible(true);
   };
@@ -35,7 +43,7 @@ export default function HistoriqueCard({
   // Framer motion variants for list items
   const listVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: (index) => ({
+    visible: (index: number) => ({
       opacity: 1,
       x: 0,
       transition: {
@@ -75,15 +83,15 @@ export default function HistoriqueCard({
           {/* List of historiques with animations */}
           <ul className="p-4">
             <AnimatePresence>
-              {historiques && historiques.length > 0 ? (
-                historiques.map((historique, index) => {
+              {contextHistoric.historiques && contextHistoric.historiques.length > 0 ? (
+                contextHistoric.historiques.map((historique, index) => {
                   const etapes = historique.etapes;
                   const premiereEtape = etapes[0];
                   const derniereEtape = etapes[etapes.length - 1];
 
                   return (
                     <motion.li
-                      key={historique.id}
+                      key={`${historique.prompt} ${index}`}
                       className="mb-4"
                       initial="hidden"
                       animate="visible"

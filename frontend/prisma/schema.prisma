@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["createMany"]
 }
 
@@ -12,18 +12,19 @@ datasource db {
 }
 
 model Historique {
-  id    Int    @id @default(autoincrement())
-  userId String
-  prompt String
-  mapUrl String
-  etapes Etape[]
+  id       Int     @id @default(autoincrement())
+  userId   String
+  prompt   String
+  mapUrl   String
+  distance Int
+  etapes   Etape[]
 }
 
 model Etape {
-  id       Int  @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   historique   Historique @relation(fields: [historiqueId], references: [id])
   historiqueId Int
-  ville String
-  duree Int
-  label String
+  ville        String
+  duree        Int
+  label        String
 }

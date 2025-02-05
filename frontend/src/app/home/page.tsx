@@ -1,19 +1,20 @@
 "use client";
 
-import ResultCard from "../(components)/resultcard";
-import Map from "../(components)/map";
-import HistoriqueCard from "../(components)/historiquecard";
 import { useState } from "react";
 import useChatBar from "../(components)/chatbar";
+import HistoriqueCard from "../(components)/historiquecard";
+import Map from "../(components)/map";
+import ResultCard from "../(components)/resultcard";
 import { useHistoriqueContext } from "../context/historiqueContext";
 
 export default function Home() {
-  const { newHistorique } = useHistoriqueContext();
+  const contextHistoric = useHistoriqueContext();
+  if (!contextHistoric) return null;
 
   const [isHistoriqueVisible, setIsHistoriqueVisible] = useState(false);
   const [isResultCardVisible, setIsResultCardVisible] = useState(false);
 
-  const toggleDisplay = (type) => {
+  const toggleDisplay = (type: string) => {
     if (type === "historique") {
       setIsHistoriqueVisible(true);
       setIsResultCardVisible(false);
@@ -29,7 +30,7 @@ export default function Home() {
   };
 
   const { chatbar, prompt } = useChatBar({
-    onClick: () => newHistorique(prompt),
+    onClick: () => contextHistoric.newHistorique(prompt),
     openResultCard: () => toggleDisplay("resultCard"),
     isResultCardVisible,
     closeDisplay: () => closeDisplay(),

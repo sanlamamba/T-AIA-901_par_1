@@ -1,11 +1,16 @@
 // 'use client'
 
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
-export const metadata = {
+interface Metadata {
+  title: string;
+  description: string;
+}
+
+export const metadata: Metadata = {
   title: "Travelgio",
   description: "Un ChatGpt pour trouver ton itinéraire !",
 };

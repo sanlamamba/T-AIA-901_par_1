@@ -1,15 +1,22 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import Recorder from "./recorder";
+
+interface Props {
+  onClick: (prompt: string) => Promise<void>;
+  openResultCard?: () => void;
+  isResultCardVisible: boolean;
+  closeDisplay: () => void;
+}
 
 export default function useChatBar({
   onClick,
   openResultCard,
   isResultCardVisible,
   closeDisplay,
-}) {
+}: Props) {
   const [prompt, setPrompt] = useState("");
   const [recordingText, setRecordingText] = useState("Recording");
   const [isRecording, setIsRecording] = useState(false);
@@ -24,12 +31,17 @@ export default function useChatBar({
       setLoading(true);
       try {
         const res = await onClick(prompt);
-      } catch (err) {
+        console.log("PATH :", res);
+        if (res.error) {
+          toast.error(res.message);
+        } else {
+          setPrompt("");
+          if (openResultCard) {
+            openResultCard();
+          }
+        }
+      } catch (err: any) {
         toast.error(err.response.data.message);
-      }
-      setPrompt("");
-      if (openResultCard) {
-        openResultCard();
       }
     } catch (error) {
       console.error("Error sending message", error);
@@ -108,8 +120,14 @@ export default function useChatBar({
   };
 }
 
+interface IconProps {
+  onClick?: () => void;
+  className: string;
+  path: string;
+}
+
 // A reusable Icon component.
-function Icon({ onClick, className, path }) {
+function Icon({ onClick, className, path }: IconProps) {
   return (
     <svg
       onClick={onClick}
