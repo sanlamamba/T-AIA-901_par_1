@@ -7,7 +7,7 @@ export const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL  ||'http://127.0.0.1:
 
 const axiosInstance = axios.create({
     baseURL: `${baseURL}/`,
-    timeout: 10000,
+    timeout: 1000000,
     headers: {
     },
 });

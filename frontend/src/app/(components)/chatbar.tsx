@@ -31,12 +31,17 @@ export default function useChatBar({
       setLoading(true);
       try {
         const res = await onClick(prompt);
+        console.log("PATH :", res);
+        if (res.error) {
+          toast.error(res.message);
+        } else {
+          setPrompt("");
+          if (openResultCard) {
+            openResultCard();
+          }
+        }
       } catch (err: any) {
         toast.error(err.response.data.message);
-      }
-      setPrompt("");
-      if (openResultCard) {
-        openResultCard();
       }
     } catch (error) {
       console.error("Error sending message", error);

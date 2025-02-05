@@ -55,8 +55,11 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ({
         userId
       );
       setHistoriques(result || []);
-    } catch (error) {
-      console.error("Erreur lors du chargement des historiques:", error);
+    } catch (error: any) {
+      console.error(
+        "Erreur lors du chargement des historiques:",
+        error.response?.data || error.message || error
+      );
     }
   }, [userId]);
 
@@ -66,40 +69,54 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ({
 
       try {
         const optimalPath = await processPathfinding(prompt);
-
-        const historique: Historique = {
-          userId,
-          prompt,
-          mapUrl: optimalPath.pathfinding_result.map_url,
-          distance: optimalPath.pathfinding_result.distance, //TODO Check this
-          etapes: optimalPath.pathfinding_result.path.map(
-            (etape: IEtape, index: number) => ({
-              ville: etape,
-              duree: parseInt(optimalPath.pathfinding_result.path_codes[index]),
-              label:
-                index === 0
-                  ? "From"
-                  : index === optimalPath.pathfinding_result.path.length - 1
-                  ? "Destination"
-                  : "Step",
-            })
-          ),
-        };
-
-        const resultHistorique: Historique | null | undefined =
-          await createHistorique(historique);
-
-        if (!resultHistorique) {
-          console.error("Erreur lors de la création de l’historique");
-          throw new Error("Erreur lors de la création de l’historique");
+        if (optimalPath.error) {
+          console.log(
+            "Erreur lors de la création de l’historique:",
+            optimalPath
+          );
+          return {
+            error: true,
+            message: optimalPath.message,
+          };
         }
 
-        setSelectedHistorique(resultHistorique);
-
-        setMapUrl(resultHistorique.mapUrl);
-        await fetchHistorique();
-      } catch (error) {
-        console.error("Erreur lors de la création de l’historique:", error);
+        if (optimalPath || optimalPath.pathfinding_result) {
+          const historique: Historique = {
+            userId,
+            prompt,
+            mapUrl: optimalPath.pathfinding_result.map_url,
+            distance: optimalPath.pathfinding_result.distance,
+            etapes: optimalPath.pathfinding_result.path.map(
+              (etape: IEtape, index: number) => ({
+                ville: etape,
+                duree: parseInt(
+                  optimalPath.pathfinding_result.path_codes[index],
+                  10
+                ),
+                label:
+                  index === 0
+                    ? "From"
+                    : index === optimalPath.pathfinding_result.path.length - 1
+                    ? "Destination"
+                    : "Step",
+              })
+            ),
+          };
+          const resultHistorique: Historique | null | undefined =
+            await createHistorique(historique);
+          if (!resultHistorique) {
+            throw new Error("Erreur lors de la création de l’historique.");
+          }
+          setSelectedHistorique(resultHistorique);
+          setMapUrl(resultHistorique.mapUrl);
+          await fetchHistorique();
+          return resultHistorique;
+        }
+      } catch (error: any) {
+        console.error(
+          "Erreur lors de la création de l’historique:",
+          error.response?.data || error.message || error
+        );
       }
     },
     [userId, fetchHistorique]
@@ -110,7 +127,12 @@ export const HistoriqueContextProvider: React.FC<HistoriqueProviderProps> = ({
   };
 
   useEffect(() => {
-    fetchHistorique();
+    fetchHistorique().catch((error) => {
+      console.error(
+        "Erreur inattendue lors du chargement des historiques:",
+        error
+      );
+    });
   }, [fetchHistorique]);
 
   return (
